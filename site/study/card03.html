@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">카드유형03</h2>
+                <p class="t_desc2">
+                    모바일 사용자가 폭발적으로 증가하면서 반응형 디자인이 어쩌면 필수적으로 적용되고 있는 지금, 카드형 디자인은 웹과 모바일 모두 화면크기에 맞게 최적화되는 모듈식 UI 패턴입니다.         
+                    수 많은 컨텐츠를 사용자에게 제공하는 서비스가 인기를 끌면서 카드 UI에 대한 관심이 지속적으로 높아지고 있으며, 뉴스나 커머스까지도 카드형 디자인이 다양하게 적용되고 있습니다.
+                    카드 유형 중 세 번째 카드 유형 제작 방법에 대해 알아보겠습니다.
+                </p>
+
+                <h3 class="t_tit2">1. Figma로 디자인하기</h3>
+                <p class="t_desc">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다. </p>
+                <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D192%253A560" allowfullscreen></iframe>
+                </div>
+                <h3 class="t_tit2">2. HTML</h3>
+                <p class="t_desc">
+                    사진과 사진에 있는 텍스트를 위해 figure 태그와 figurecaption 태그를 사용하였습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="cardType03" class="card__wrap score section"&gt;
+    &lt;h2 class="blind"&gt;레저 스포츠&lt;/h2&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_01.jpg" alt="Surfing"&gt;
+                &lt;figcaption&gt;Surfing&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;여름에 즐길 수 있는 익스트림 레저 스포츠01&lt;/h3&gt;
+                &lt;p&gt;여름에 즐길 수 있는 익스트림 레저 스포츠 첫번째는 서핑입니다. 바다에서도 즐길 수 있지만 인공 서핑장에서도 즐길 수 있습니다. 경기도 시흥시의&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Cree Percy &lt;em&gt;9Resources&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon01.png" alt="Chris"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_02.jpg" alt="Rafting"&gt;
+                &lt;figcaption&gt;Rafting&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;여름에 즐길 수 있는 익스트림 레저 스포츠02&lt;/h3&gt;
+                &lt;p&gt;여름에 즐길 수 있는 익스트림 레저 스포츠 두번째는 래프팅입니다. 급류로 인해 위험할 수도 이으니 주의하여 주시기 바랍니다. 구명조끼를 필수로 착용&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Cree Percy &lt;em&gt;9Resources&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon02.png" alt="Chris"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;figure class="card__header"&gt;
+                &lt;img src="img/card_bg03_03.jpg" alt="Diving"&gt;
+                &lt;figcaption&gt;Diving&lt;/figcaption&gt;
+            &lt;/figure&gt;
+            &lt;div class="card__contents"&gt;
+                &lt;h3&gt;여름에 즐길 수 있는 익스트림 레저 스포츠03&lt;/h3&gt;
+                &lt;p&gt;여름에 즐길 수 있는 익스트림 레저 스포츠 세번째는 절벽다이빙입니다. 그냥 계곡이 아닌 20미터 정도 되는 높이에서 뛰어내리는 다이빙입니다. 스릴을 즐기시는 &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="card__footer"&gt;
+                &lt;h4&gt;Cree Percy &lt;em&gt;9Resources&lt;/em&gt;&lt;/h4&gt;
+                &lt;span&gt;&lt;img src="img/card_bg03_icon03.png" alt="Chris"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. CSS</h3>
+                <p class="t_desc">
+                    Figma를 이용해 만든 디자인을 보며 css설정을 합니다. 
+                </p>
+                <p class="t_box">
+                    * 텍스트 줄이는 팁<br>
+                    <i>overflow</i>: hidden; <br>
+                    <i>text-overflow</i>: ellipsis;<br>
+                    <i>display</i>: -webkit-box;<br>
+                    <i>-webkit-line-clamp</i>: 3;   //몇 줄로 제한할지 설정<br>
+                    <i>-webkit-box-orient</i>: vertical;
+                    <br>
+                    <br>
+                    * blind 처리<br>
+                    콘텐츠를 숨기고 싶지만 <i>스크린리더기</i>에는 읽혀야 하는 경우 사용합니다. 
+                    스크린리더는 width, height가 0인 속성들은 읽을 수 없으므로 <i>최소 1px 이상</i>으로 해야 합니다.
+
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+.score {
+    font-family: 'SCoreDream';
+    font-weight: 300;
+}
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+img {
+    width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+.section {
+    padding: 120px 0;
+}
+.section > h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section > p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+/* blind */
+.blind {
+    position:absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+/* cardType03 */
+body {
+    background-color: #2254C3;
+}
+.card__inner {
+    display: flex;
+}
+.card__inner .card {
+    padding: 26px;
+    width: 33.3333%;
+    background-color: #fff;
+}
+.card__inner .card:nth-child(1) {
+    border-right: 1px solid #eee;
+}
+.card__inner .card:nth-child(2) {
+    border-right: 1px solid #eee;
+}
+.card__header {
+    position: relative;
+}
+.card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.card__header figcaption {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 14px;
+    color: #7B7B7B;
+}
+.card__contents h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.card__contents p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 30px;
+}
+.card__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.card__footer h4 {
+    text-align: right;
+    color: #DD2A2A;
+}
+.card__footer em {
+    display: block;
+    color: #666;
+    font-style: normal;
+}
+.card__footer span {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    margin-left: 10px;
+    margin-top: -3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+</code></pre>
+                </div>
+                <hr>
+                <h4 class="t_tit3">최종결과</h4>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                    <iframe src="https://Kim-chanmi.github.io/coding/site/cardType/cardType03.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://github.com/Kim-chanmi/coding/blob/main/site/cardType/cardType03.html" target="_blank">원본 소스 보기</a>
+                </div>
+                <div class="t_link">
+                    <a href="https://Kim-chanmi.github.io/coding/site/cardType/cardType03.html" target="_blank">원본 사이트 보기</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

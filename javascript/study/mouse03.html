@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과03</h2>
+            <p class="t_desc2">
+                자바스크립트를 이용하여 마우스 효과를 만들어 보겠습니다. 이미지에 마우스를 올렸을 때 조명을 비춘 것처럼 보이는 효과입니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/mouseEffect03.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/mouseEffect03.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/mouseEffect03.html" target="_blank">원본
+                    사이트 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 자바스크립트 작성법입니다. gsap를 이용하여 효과를 주었습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+
+// const circleW = cursor.offsetWidth; //200  -> 보더/패딩 포함한 가로값
+// const circleH = cursor.offsetHeight; //200   -> 보더/패딩 포함한 세로값
+// const circle2 = cursor.clientWidth; //190 -> 보더/마진 제외한 가로값
+
+const circle = cursor.getBoundingClientRect();      //getBoundingClientRect : 뷰포트 기준으로 요소 위치 찾아내기 -> 커서의 너비/높이값 구하기
+
+console.log(circle) //위치값 확인
+// const DOMRect = {
+//     x : 0,
+//     y : 0,
+//     bottom : 200,
+//     height : 200,
+//     left : 0,
+//     right : 200,
+//     top : 0,
+//     width : 200
+// }
+
+window.addEventListener("mousemove", (e) => {       //마우스를 움직였을 때 이벤트 추가
+    gsap.to(cursor, {                               //gsap.to는 css의 animation 효과와 유사
+        duration: 0.3,                              //애니메이션 지속 시간을 의미하며 기본은 0.5초. 지속시간이 누적되기 때문에 마우스가 계속 따라오는 것처럼 보임
+        left: e.pageX - circle.width / 2,           //pageX | pageY : 전체 문서를 기준으로 한 값 좌표 
+        top: e.pageY - circle.height / 2,           //커서가 가운데에 올 수 있게 /2
+    });
+});
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 html 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+
+        &lt;div class="mouse__wrap"&gt;
+            &lt;p&gt;&lt;span class="style1"&gt;Life&lt;/span&gt; is all about &lt;span class="style2"&gt;timing.&lt;/span&gt; &lt;/p&gt;
+            &lt;p&gt;&lt;span class="style3"&gt;인생은&lt;/span&gt; &lt;span class="style4"&gt;타이밍&lt;/span&gt; 이다. &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;!-- main --&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 css 작성법입니다. 마우스 효과를 위해 cursor는 none으로 설정합니다. 마우스 커서의 백그라운드에 배경 이미지를 넣어줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+    background: url(../assets/img/effect_bg12@2x-min.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;   //위치 고정
+    border: 5px solid #fff;
+}
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

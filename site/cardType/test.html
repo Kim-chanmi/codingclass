@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드유형</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .score {
+            font-family: 'SCoreDream';
+            font-weight: 300;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* blind */
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        /* cardType03 */
+        body {
+            background-color: #2254c3;
+        }
+
+        .card__inner {
+            display: flex;
+        }
+
+        .card__inner .card {
+            padding: 26px;
+            width: 33.3333%;
+            background-color: #fff;
+        }
+
+        .card__inner .card:nth-child(1) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__inner .card:nth-child(2) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__header {
+            position: relative;
+        }
+
+        .card__header img {
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            height: 334px;
+        }
+
+        .card__header figcaption {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #7b7b7b;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .card__contents h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .card__contents p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .card__footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card__footer h4 {
+            font-size: 16px;
+            text-align: right;
+            color: #dd2a2a;
+        }
+
+        .card__footer em {
+            font-style: normal;
+            color: #666;
+            display: block;
+        }
+
+        .card__footer span {
+            width: 40px;
+            height: 40px;
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            margin-left: 13px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType03" class="card__wrap score section">
+        <h2 class="blind">레저 스포츠</h2>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_01.jpg" alt="Surfing">
+                    <figcaption>Surfing</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠01</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 첫번째는 서핑입니다. 바다에서도 즐길 수 있지만 인공 서핑장에서도 즐길 수 있습니다. 경기도 시흥시의</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon01.png" alt=""></span>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_02.jpg" alt="Rafting">
+                    <figcaption>Rafting</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠02</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 두번째는 래프팅입니다. 급류로 인해 위험할 수도 있으니 주의하여 주시기 바랍니다. 준비운동을 필수로</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon02.png" alt=""></span>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_03.jpg" alt="Diving">
+                    <figcaption>Diving</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠03</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 세번째는 절벽다이빙입니다. 그냥 계곡이 아닌 20미터 정도 되는 높이에서 뛰어내리는 스릴 넘치는 스포츠</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon03.png" alt=""></span>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">01. 블록 레벨 요소(Block-level Elements)</h2>
+                <p class="t_desc2">
+                    블록 레벨 요소는 태그를 사용해 삽입했을 때, 혼자 한 줄을 차지하는 요소입니다. 자동으로 줄 바꿈이 일어나고
+                    텍스트오 인라인 요소를 자식 요소로 포함할 수 있습니다. 블록 레벨 요소를 자식 요소로 포함할 수 있는 요소와 없는 요소가 있습니다.
+                    
+                </p>
+                <h3 class="t_tit2">01) 블록 레벨 예시</h3>
+                <div class="t_code">
+<pre><code>&lt;!DOCTYPE HTML&gt; 
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;블록 레벨 요소&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;블록 레벨 요소&lt;/h1&gt;
+    &lt;h2&gt;블록 레벨 요소 성질&lt;/h2&gt;
+    &lt;p&gt;줄 바꿈이 생깁니다.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                </div>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="블록" src="https://codepen.io/kim-chanmi/embed/NWYorzY?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/NWYorzY">
+                        블록</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+
+                <h3 class="t_tit2">02) 블록 레벨 태그</h3>
+                <div class="t_box">
+                    &lt;address&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;details&gt;, &lt;div&gt;, 
+                    &lt;figcaption&gt;, &lt;figure&gt;, &lt;footer&gt;, &lt;h1~h6&gt;, &lt;header&gt;,
+                    &lt;hr&gt;, &lt;li&gt;, &lt;main&gt;, &lt;nav&gt;, &lt;ol&gt;, &lt;p&gt;, &lt;pre&gt;, 
+                    &lt;section&gt;, &lt;table&gt;, &lt;ul&gt;···
+                </div>
+                <hr>
+                <h2 class="t_tit">02. 인라인 레벨 요소(Inline Element)</h2>
+                <p class="t_desc2">
+                    인라인 레벨 요소는 콘텐츠의 흐름을 끊지 않고, 요소를 구성하는 태그를 할당된 공간만 차지합니다. 
+                    인라인 레벨 요소는 줄 바꿈이 일어나지 않으며 텍스트와 인라인 요소를 자식 요소로 포함할 수 있습니다. 
+                    하지만 블록 레벨 요소를 자식 요소로 포함할 수 없습니다.
+                </p>
+                <h3 class="t_tit2">01) 인라인 레벨 예시</h3>
+                <div class="t_code">
+<pre><code>&lt;!DOCTYPE HTML&gt; 
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;인라인 요소&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;strong&gt;인라인 요소&lt;/h1&gt;
+    &lt;span&gt;인라인 요소는 한 줄로 출력됩니다.&lt;/span&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                </div>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="인라인" src="https://codepen.io/kim-chanmi/embed/gOeqMBx?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/gOeqMBx">
+                        인라인</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+                <h3 class="t_tit2">02) 인라인 레벨 태그</h3>
+                <div class="t_box">
+                    &lt;a&gt;, &lt;br&gt;, &lt;button&gt;, &lt;code&gt;, &lt;data&gt;, 
+                    &lt;data&gt;, &lt;i&gt;, &lt;iframe&gt;, &lt;img&gt;, &lt;input&gt;,
+                    &lt;label&gt;, &lt;object&gt;, &lt;script&gt;, &lt;select&gt;, &lt;span&gt;, &lt;strong&gt;, &lt;u&gt;, 
+                    &lt;var&gt;···
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
