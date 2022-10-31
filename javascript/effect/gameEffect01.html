@@ -296,11 +296,27 @@
       </div>
       <div class="memory__wrap">
         <div class="memory__inner">
-          <div class="memory__header">
+          <img class="memory__close" src="../assets/img/close.png" alt="" />
+          <div class="memory__intro">
             <h2>MEMORY GAME</h2>
-            <img src="../assets/img/close.png" alt="" />
+            <ul>
+              <li>* 5초 동안 카드를 보여드립니다.</li>
+              <li>* 짝을 잘 기억해두었다가 맞춰주세요.</li>
+              <li>* 기회는 3번이니 신중히 시도해 주세요.</li>
+              <li>* START 버튼을 눌러 시작해 주세요.</li>
+            </ul>
+            <div class="memory__start">START !</div>
           </div>
           <div class="memory__card">
+            <div class="memory__header">
+              <h2>MEMORY GAME</h2>
+              <div class="memory__info">
+                <span>점수 : <span class="memory__score">0</span>/8</span>
+                <span>
+                  남은 기회 : <span class="memory__opportuvity">3</span>
+                </span>
+              </div>
+            </div>
             <ul class="cards">
               <li>
                 <div class="view front">
@@ -432,6 +448,11 @@
               </li>
             </ul>
           </div>
+          <div class="memory__restart">RESTART</div>
+          <div class="memory__restart2">
+            축하합니다! <br />
+            RESTART
+          </div>
         </div>
       </div>
     </div>
@@ -447,9 +468,15 @@
       // 메모리게임 열고 닫기
       const memoryOpen = document.querySelector(".icon3");
       const memoryCont = document.querySelector(".memory__wrap");
+      const memoryClose = document.querySelector(".memory__close");
 
       memoryOpen.addEventListener("click", () => {
         memoryCont.style.display = "block";
+      });
+
+      // 메모리게임 닫기
+      memoryClose.addEventListener("click", () => {
+        memoryCont.style.display = "none";
       });
     </script>
     <script src="../assets/js/search.js"></script>

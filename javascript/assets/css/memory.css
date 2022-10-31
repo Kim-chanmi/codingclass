@@ -1,39 +1,104 @@
 .memory__wrap {
-  /* display: none; */
+  display: none;
 }
 .memory__inner {
   width: 700px;
+  height: 772.67px;
   border: 3px solid rgb(213, 180, 236);
-  background: #000;
+  background: #444;
   position: absolute;
   left: 300px;
   top: 100px;
   border-radius: 20px;
   animation: flicker 1.5s infinite alternate;
 }
-.memory__header {
-  display: flex;
-  justify-content: space-between;
-  background: #000;
-  animation: flicker 1.5s infinite alternate;
+.memory__intro {
+  text-align: center;
+  color: #eee;
 }
-.memory__header h2 {
-  font-size: 28px;
+.memory__intro h2 {
+  margin-top: 150px;
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+.memory__intro li {
+  list-style: none;
+  line-height: 1.6;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.memory__start {
+  font-size: 45px;
+  width: 200px;
+  position: absolute;
+  left: 35%;
+}
+.memory__restart {
+  text-align: center;
+  background: #000;
+  color: #fff;
+  width: 200px;
+  font-size: 45px;
+  padding: 10px 0;
+  border-radius: 10px;
+  transform: scale(0);
+  animation: flicker 1.5s infinite alternate;
+  position: absolute;
+  left: 38%;
+  top: 48%;
+}
+.memory__restart2 {
+  text-align: center;
+  background: #000;
+  color: #fff;
+  width: 300px;
+  font-size: 45px;
+  line-height: 1.4;
+  padding: 10px 0;
+  border-radius: 10px;
+  transform: scale(0);
+  animation: flicker 1.5s infinite alternate;
+  position: absolute;
+  left: 30%;
+  top: 43%;
+}
+.memory__close {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  width: 25px;
+  height: 25px;
+}
+.memory__header {
   text-align: center;
 }
+.memory__header h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #fff;
+}
+.memory__info {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
 .memory__card {
   padding: 30px;
+  display: none;
 }
 .memory__card .cards {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 .memory__card .cards li {
   list-style: none;
-  width: 150px;
-  height: 150px;
-  /* background: #2A0E11; */
+  width: 130px;
+  height: 130px;
   position: relative;
   border-radius: 20px;
   transform-style: preserve-3d;
