@@ -101,6 +101,7 @@ musicBtn.addEventListener("click", () => {
 // 뮤직 플레이어 닫기
 musicClose.addEventListener("click", () => {
   musicWrap.style.display = "none";
+  musicAudio.pause();
 });
 
 // 음악 재생
