@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://webfontworld.github.io/pretendard/Pretendard.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://webfontworld.github.io/score/SCoreDream.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Pretendard";
+      }
+      .fixed {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .scrollTop {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        width: 50px;
+        height: 40px;
+        background: rgba(236, 128, 128, 0.3);
+        text-align: center;
+        line-height: 40px;
+        z-index: 10000;
+      }
+      /* layout */
+      #section1 {
+        height: 10000px;
+        background: #efeaee;
+      }
+      /* sec1 */
+      .sec1__text1 {
+        font-size: 8vw;
+        white-space: nowrap;
+        color: #ebbaba;
+      }
+      .sec1__text2 {
+        font-size: 8vw;
+        white-space: nowrap;
+        color: #ebbaba;
+      }
+      .sec1__text3 {
+        width: 100%;
+        height: 100vh;
+        /* background: rgba(34, 34, 34, 0.5); */
+        background: url(https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzM0fHxwaW5rJTIwdG9uZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60);
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .sec1_text4 {
+        border-radius: 20px;
+        color: #5e3b3b;
+        text-align: center;
+        font-size: 5vw;
+      }
+
+      .sec1_text5 {
+        border-radius: 20px;
+        color: #5e3b3b;
+        text-align: center;
+        font-size: 5vw;
+        animation-name: zoomIn;
+      }
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale3d(0.3, 0.3, 0.3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+      .sec1_text6 {
+        width: 100%;
+        font-size: 5vw;
+        color: #5e3b3b;
+      }
+      .sec1_text6::before {
+        content: "";
+        width: 16%;
+        height: 2px;
+        position: absolute;
+        right: 101%;
+        top: 100%;
+        background-color: #5e3b3b;
+      }
+      .sec1_text7 {
+        width: 100%;
+        height: 100%;
+        background-color: #efeaee;
+      }
+
+      .sec1_text8 {
+        width: 100%;
+        font-size: 8vw;
+        color: #ef9494;
+        font-weight: 600;
+      }
+      .sec1_text8 span {
+        text-shadow: 0 1px 0 #f3dcee, 0 2px 0 #f3dcee, 0 3px 0 #f3dcee,
+          0 4px 0 #f3dcee, 0 5px 0 #f3dcee, 0 6px 0 transparent,
+          0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent,
+          0 10px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      span:nth-child(4) {
+        animation-delay: 0.5s;
+      }
+      span:nth-child(5) {
+        animation-delay: 0.7s;
+      }
+      span:nth-child(6) {
+        animation-delay: 0.9s;
+      }
+      span:nth-child(7) {
+        animation-delay: 1.1s;
+      }
+      span:nth-child(8) {
+        animation-delay: 1.3s;
+      }
+
+      .sec1_text9 {
+        font-size: 1.6vw;
+        line-height: 2;
+        color: #ef9494;
+        font-weight: 300;
+        font-family: "SCoreDream";
+        text-align: right;
+      }
+
+      .sec1_text10 img {
+        height: 60vh;
+      }
+      .sec1_text11 {
+        width: 100%;
+        height: 100vh;
+        background-color: #efeaee;
+        font-size: 8vw;
+      }
+      .sec1_text12 {
+        font-size: 8vw;
+        color: #ef9494;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scrollTop"></div>
+    <main id="contetns">
+      <section id="section1">
+        <div class="sec1">
+          <div
+            class="sec1__text1 fixed"
+            data-0="left: 50%; top:30%; opacity:1"
+            data-500="top:30%; left: 50%; opacity:0"
+          >
+            Hi there!
+          </div>
+          <div
+            class="sec1__text2 fixed"
+            data-500="opacity:0; top: 70%; transform:translate(-50%, -50%) scale(1)"
+            data-1000="opacity:1; top:30%; transform:translate(-70%, -50%) scale(1)"
+            data-1500="opacity:1; left:50%; transform:translate(-50%, -50%) scale(0)"
+          >
+            Nice to meet you
+          </div>
+          <div
+            class="sec1__text3 fixed"
+            data-1300="width: 0%; height: 0vh; transform: translate(-50%, -50%) skewY(20deg)"
+            data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%) skew(0deg)"
+            data-3500="width: 100%; height: 100vh; transform: translate(-50%, -50%) skew(0deg);"
+          ></div>
+          <div
+            class="sec1_text4 fixed"
+            data-4000="width: 100%; right: 0%; transform: translate(0%, -100%) scale(0)  skewX(-60deg);"
+            data-5000="width: 100%; right: 50%; transform: translate(-50%, -100%) scale(1)  skewX(0deg);"
+          >
+            프론트앤드를 꿈꾸는
+          </div>
+          <div
+            class="sec1_text5 fixed"
+            data-6000="transform: translate(-120%, 10%) scale(0); opacity:0;"
+            data-8500="transform: translate(-120%, 10%) scale(1); opacity:1;"
+          >
+            김찬미
+          </div>
+          <div
+            class="sec1_text6 fixed"
+            data-4000="right: 0%; transform: translate(0%, 0%) scale(0) skewX(-60deg);"
+            data-5000="right: 50%; transform: translate(0%, 10%) scale(1) skewX(0deg);"
+          >
+            입니다!
+          </div>
+          <div
+            class="sec1_text7 fixed"
+            data-9000="opacity:0; transform: translate(-50%, -50%) scale(0);"
+            data-9500="opacity:1; transform: translate(-50%, -50%) scale(1);"
+          ></div>
+          <div
+            class="sec1_text8 fixed"
+            data-10000="opacity:0; right:0%; transform: translate(0%, -50%) scale(0);"
+            data-10500="opacity:1; left: 55%; transform: translate(-50%, -220%) scale(1);"
+          >
+            <span>A</span>
+            <span>b</span>
+            <span>o</span>
+            <span>u</span>
+            <span>t</span>
+            &nbsp;
+            <span>M</span>
+            <span>e</span>
+          </div>
+          <div
+            class="sec1_text9 fixed"
+            data-11000="opacity:0; left:5%; bottom:0%; transform: translate(0%, 0%) scale(0);"
+            data-12000="opacity:1; left:10%; bottom: 25%; transform: translate(0%, -50%) scale(1);"
+          >
+            머물러있지 않고 더욱더 성장하려 노력하는 김찬미입니다.<br />
+            작업치료를 전공하여 작업치료사로 4년 이상 근무했지만,<br />
+            제 진짜 적성을 찾기 위해 새로운 도전을 시작하였습니다.<br />
+            새로운 도전이 무섭기도 했지만, 설레기도 했습니다.<br />
+            아직은 많이 부족하고 미숙하지만<br />
+            노력하고 열정적으로 공부하여 "성장"하는 모습 보여드리겠습니다.<br />
+          </div>
+          <div
+            class="sec1_text10 fixed"
+            data-13000="right: 0; opacity:0; transform: translate(20%, -50%) scale(0);"
+            data-14000="right: 0; opacity:1; transform: translate(20%, -55%) scale(1);"
+          >
+            <img src="../../assets/img/profile_me.jpg" alt="프로필이미지" />
+          </div>
+          <div
+            class="sec1_text11 fixed"
+            data-15000="opacity:1; left:0%; bottom:0%; transform: translate(0%, 0%) scale(0);"
+            data-16000="opacity:1; left:50%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+          ></div>
+          <div
+            class="sec1_text12 fixed"
+            data-16500="opacity:0; left: 25%; top:0%; transform: translate(0%, 0%) scale(1);"
+            data-17000="opacity:1; left:50%; top: 45%; transform: translate(-50%, -50%) scale(1);"
+          >
+            감사합니다.
+          </div>
+        </div>
+      </section>
+      <!-- //section1 -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/skrollr@0.6.26/dist/skrollr.min.js"></script>
+    <script>
+      const s = skrollr.init();
+      function scroll() {
+        let scrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          window.screenY;
+        document.querySelector(".scrollTop").innerText = Math.ceil(scrollTop);
+        requestAnimationFrame(scroll);
+      }
+      scroll();
+    </script>
+  </body>
+</html>
