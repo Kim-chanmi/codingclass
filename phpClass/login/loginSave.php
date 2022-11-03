@@ -10,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP 사이트 만들기</title>
-
-    <?php include "../include/head.php" ?>
+    <?php include "../include/head.php"?>
 </head>
 
 <body>
@@ -21,10 +20,8 @@
         <a href="#footer">푸터 영역 바로가기</a>
     </div>
     <!-- //skip -->
-
-    <?php include "../include/header.php" ?>
-    <!-- header -->
-
+    <?php include "../include/header.php"?>
+    <!-- //header -->
     <main id="main">
         <section id="banner" class="container section">
             <h2 class="blind">회원가입 축하합니다.</h2>
@@ -34,8 +31,6 @@
                 </div>
                 <div class="desc">
                     어떤 일이라도 <em>노력</em>하고 즐기면 그 결과는 <em>빛</em>을 바란다고 생각합니다.<br>
-                    회원가입을 축하드립니다.
-
                     <?php
     $youEmail = $_POST['youEmail'];
     $youPass = $_POST['youPass'];
@@ -72,10 +67,9 @@
         </section>
         <!-- //banner -->
     </main>
-    <!-- main -->
-
-    <?php include "../include/footer.php" ?>
-    <!-- footer -->
+    <!-- //main -->
+    <?php include "../include/footer.php"?>
+    <!-- //footer -->
 </body>
 
 </html>
