@@ -156,8 +156,8 @@ memoryRestart2.addEventListener("click", () => {
   matchedCard = 0;
   document.querySelector(".memory__score").innerHTML = matchedCard;
   memoryCards.forEach((card) => {
-    card.classList.add("flip");
-    card.removeEventListener("click", flipCard);
+    card.classList.remove("flip");
+    card.addEventListener("click", flipCard);
   });
   memoryRestart2.style.transform = "scale(0)";
 });
@@ -170,8 +170,8 @@ memoryRestart.addEventListener("click", () => {
   matchedCard = 0;
   document.querySelector(".memory__score").innerHTML = matchedCard;
   memoryCards.forEach((card) => {
-    card.classList.add("flip");
-    card.removeEventListener("click", flipCard);
+    card.classList.remove("flip");
+    card.addEventListener("click", flipCard);
   });
   memoryRestart.style.transform = "scale(0)";
 });

@@ -49,7 +49,7 @@
         color: #ebbaba;
       }
       .sec1__text2 {
-        font-size: 8vw;
+        font-size: 6vw;
         white-space: nowrap;
         color: #ebbaba;
       }
@@ -104,6 +104,8 @@
         width: 100%;
         height: 100%;
         background-color: #efeaee;
+        font-size: 5vw;
+        color: #ef9494;
       }
 
       .sec1_text8 {
@@ -113,8 +115,8 @@
         font-weight: 600;
       }
       .sec1_text8 span {
-        text-shadow: 0 1px 0 #f3dcee, 0 2px 0 #f3dcee, 0 3px 0 #f3dcee,
-          0 4px 0 #f3dcee, 0 5px 0 #f3dcee, 0 6px 0 transparent,
+        text-shadow: 0 1px 0 #e8dde6, 0 2px 0 #e8dde6, 0 3px 0 #e8dde6,
+          0 4px 0 #e8dde6, 0 5px 0 #e8dde6, 0 6px 0 transparent,
           0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent,
           0 10px 10px rgba(0, 0, 0, 0.4);
       }
@@ -156,12 +158,34 @@
       .sec1_text11 {
         width: 100%;
         height: 100vh;
-        background-color: #efeaee;
-        font-size: 8vw;
       }
       .sec1_text12 {
         font-size: 8vw;
         color: #ef9494;
+      }
+      .sec1_text13 {
+        font-size: 3vw;
+        color: #ef9494;
+      }
+      .sec1__text15 {
+        font-size: 8vw;
+        white-space: nowrap;
+        color: #ebbaba;
+        animation-name: zoomInDown;
+      }
+      @keyframes zoomInDown {
+        from {
+          opacity: 0;
+          transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+          animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        60% {
+          opacity: 1;
+          transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+          transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+        }
       }
     </style>
   </head>
@@ -183,17 +207,20 @@
             data-1000="opacity:1; top:30%; transform:translate(-70%, -50%) scale(1)"
             data-1500="opacity:1; left:50%; transform:translate(-50%, -50%) scale(0)"
           >
-            Nice to meet you
+            반갑습니다
           </div>
           <div
             class="sec1__text3 fixed"
-            data-1300="width: 0%; height: 0vh; transform: translate(-50%, -50%) skewY(20deg)"
-            data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%) skew(0deg)"
+            data-1300="width: 0%; height: 0vh; transform: translate(-50%, -50%)"
+            data-2300="width: 100%; height: 100vh; transform: translate(-50%, -50%)"
           ></div>
           <div
             class="sec1_text4 fixed"
-            data-2300="width: 100%; right: 0%; transform: translate(0%, -100%) scale(0)  skewX(-60deg);"
-            data-3000="width: 100%; right: 50%; transform: translate(-50%, -100%) scale(1)  skewX(0deg);"
+            data-2300="width: 100%; right: -100%; transform: translate(0%, -100%) scale(0);"
+            data-2700="width: 100%; right: -100%; transform: translate(0%, -100%) scale(1);"
+            data-3000="width: 100%; right: 50%; transform: translate(-50%, -100%) scale(1);"
+            data-4000="width: 100%; right: 50%; transform: translate(-50%, -100%) scale(1);"
+            data-4500="width: 100%; right: 50%; transform: translate(-50%, -100%) scale(0);"
           >
             프론트앤드를 꿈꾸는
           </div>
@@ -201,25 +228,127 @@
             class="sec1_text5 fixed"
             data-3500="transform: translate(-120%, 10%) scale(0); opacity:0;"
             data-4000="transform: translate(-120%, 10%) scale(1); opacity:1;"
+            data-4500="transform: translate(-120%, 10%) scale(0); opacity:0;"
           >
             김찬미
           </div>
           <div
             class="sec1_text6 fixed"
-            data-2300="right: 0%; transform: translate(0%, 0%) scale(0) skewX(-60deg);"
-            data-3000="right: 50%; transform: translate(0%, 10%) scale(1) skewX(0deg);"
+            data-2300="right: -100%; transform: translate(-10%, -100%) scale(0);"
+            data-2700="right: -100%; transform: translate(-10%, -100%) scale(1);"
+            data-3000="right: 50%; transform: translate(0%, 10%) scale(1);"
+            data-4000="right: 50%; transform: translate(0%, 10%) scale(1);"
+            data-4500="right: 50%; transform: translate(0%, 10%) scale(0);"
           >
             입니다!
           </div>
           <div
             class="sec1_text7 fixed"
-            data-4500="opacity:0; transform: translate(-50%, -50%) scale(0);"
-            data-5000="opacity:1; transform: translate(-50%, -50%) scale(1);"
+            data-4500="opacity:0; top:0%; transform: translate(-50%, -50%) scale(0);"
+            data-5000="opacity:1; top:50%; transform: translate(-50%, -50%) scale(1);"
           ></div>
           <div
+            class="sec1_text7 fixed"
+            data-4500="opacity:0; top:0%; left: 0%; top: 0%; transform: translate(-50%, -50%) scale(0);"
+            data-5300="opacity:1; top:50%; left: 60%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+            data-5500="opacity:0; top:50%; transform: translate(-50%, -50%) scale(0);"
+          >
+            내가 좋아하는 것은?
+          </div>
+          <div
+            class="sec1_text13 fixed"
+            data-5300="width:100%; opacity:0; left:0%; top:0%; transform: translate(-50%, -50%) scale(0);"
+            data-5500="width: 100%; opacity:1; left:60%; top:15%; transform: translate(-50%, -50%) scale(1);"
+            data-8000="width: 100%; opacity:1; left:60%; top:15%; transform: translate(-50%, -50%) scale(1);"
+            data-8500="width: 100%; opacity:0; left:60%; top:15%; transform: translate(-50%, -50%) scale(0);"
+          >
+            # 여행 &nbsp; # 퀘백&nbsp; # 디즈니랜드 &nbsp; # 그랜드캐년
+          </div>
+          <div
+            class="sec1_text11 fixed"
+            data-5500="opacity:0; right:-100%; bottom:0%; transform: translate(-50%, -50%) scale(1);"
+            data-6000="opacity:1; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+            data-6500="opacity:1; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+            data-7000="opacity:0; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple01.jpg" alt="여행이미지" />
+          </div>
+          <div
+            class="sec1_text12 fixed"
+            data-6000="opacity:0; right: 0%; bottom:0%; transform: translate(-80%, -50%) scale(1);"
+            data-6500="opacity:1; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+            data-7500="opacity:0; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple03.jpg" alt="여행이미지" />
+          </div>
+          <div
+            class="sec1_text13 fixed"
+            data-6500="opacity:0; right: 0%; bottom:0%; transform: translate(-80%, -50%) scale(1);"
+            data-7500="opacity:1; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+            data-8000="opacity:0; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple04.jpg" alt="여행이미지" />
+          </div>
+          <div
+            class="sec1_text14 fixed"
+            data-6500="opacity:0; right:-100%; bottom:0%; transform: translate(-50%, -50%) scale(1);"
+            data-7000="opacity:1; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+            data-7500="opacity:1; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+            data-8000="opacity:0; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple07.jpg" alt="여행이미지" />
+          </div>
+          <div
+            class="sec1_text13 fixed"
+            data-8000="width:100%; opacity:0; left:0%; top:0%; transform: translate(-50%, -50%) scale(0);"
+            data-8500="width: 100%; opacity:1; left:60%; top:15%; transform: translate(-50%, -50%) scale(1);"
+            data-9000="width: 100%; opacity:1; left:60%; top:15%; transform: translate(-50%, -50%) scale(1);"
+            data-12500="width: 100%; opacity:1; left:60%; top:15%; transform: translate(-50%, -50%) scale(1);"
+            data-12700="width: 100%; opacity:0; left:60%; top:15%; transform: translate(-50%, -50%) scale(0);"
+          >
+            # 야구 &nbsp; # 배구&nbsp; # 필라테스 &nbsp; # 글램핑
+          </div>
+          <div
+            class="sec1_text11 fixed"
+            data-9000="opacity:0; right:-100%; bottom:0%; transform: translate(-50%, -50%) scale(1);"
+            data-9500="opacity:1; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+            data-10000="opacity:1; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+            data-10500="opacity:0; left:100%; top: 70%; transform: translate(-50%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple10.jpg" alt="야구" />
+          </div>
+          <div
+            class="sec1_text12 fixed"
+            data-9500="opacity:0; right: 0%; bottom:0%; transform: translate(-80%, -50%) scale(1);"
+            data-10000="opacity:1; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+            data-11500="opacity:0; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple06.jpg" alt="배구" />
+          </div>
+          <div
+            class="sec1_text14 fixed"
+            data-10500="opacity:0; right:-100%; bottom:0%; transform: translate(-50%, -50%) scale(1);"
+            data-11000="opacity:1; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+            data-11500="opacity:1; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+            data-12000="opacity:0; left:100%; top: 50%; transform: translate(-50%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple09.jpg" alt="필라테스" />
+          </div>
+          <div
+            class="sec1_text14 fixed"
+            data-11500="opacity:0; right: 0%; bottom:0%; transform: translate(-80%, -50%) scale(1);"
+            data-12000="opacity:1; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+            data-12500="opacity:0; left:50%; top: 55%; transform: translate(-80%, -50%) scale(1);"
+          >
+            <img src="../assets/img/apple11.jpg" alt="카라반" />
+          </div>
+          <div
             class="sec1_text8 fixed"
-            data-5000="opacity:0; right:0%; transform: translate(0%, -50%) scale(0);"
-            data-5500="opacity:1; left: 55%; transform: translate(-50%, -220%) scale(1);"
+            data-12700="opacity:0; right:0%; transform: translate(0%, -50%) scale(0);"
+            data-13000="opacity:1; left: 55%; transform: translate(-50%, -230%) scale(1);"
+            data-13500="opacity:1; left: 55%; transform: translate(-50%, -230%) scale(1);"
+            data-15500="opacity:1; left: 55%; transform: translate(-50%, -230%) scale(1);"
+            data-15555="opacity:0; left: 55%; transform: translate(-50%, -230%) scale(1);"
           >
             <span>A</span>
             <span>b</span>
@@ -232,8 +361,10 @@
           </div>
           <div
             class="sec1_text9 fixed"
-            data-5500="opacity:0; left:5%; bottom:0%; transform: translate(0%, 0%) scale(0);"
-            data-6000="opacity:1; left:10%; bottom: 25%; transform: translate(0%, -50%) scale(1);"
+            data-13500="opacity:0; left:5%; bottom:0%; transform: translate(0%, 0%) scale(0);"
+            data-14000="opacity:1; left:10%; bottom: 100%; top: 40%; transform: translate(0%, 150%) scale(1);"
+            data-15000="opacity:1; left:10%; bottom: 100%; top: 40%; transform: translate(0%, 150%) scale(1);"
+            data-15500="opacity:1; left:10%; bottom: 100%; top: 40%; transform: translate(0%, 100%) scale(0);"
           >
             머물러있지 않고 더욱더 성장하려 노력하는 김찬미입니다.<br />
             작업치료를 전공하여 작업치료사로 4년 이상 근무했지만,<br />
@@ -244,22 +375,21 @@
           </div>
           <div
             class="sec1_text10 fixed"
-            data-6000="right: 0; opacity:0; transform: translate(20%, -50%) scale(0);"
-            data-6500="right: 0; opacity:1; transform: translate(20%, -55%) scale(1);"
+            data-14000="right: 0; opacity:0; transform: translate(20%, -50%) scale(0);"
+            data-14500="right: 0; opacity:1; transform: translate(20%, -60%) scale(1);"
+            data-15000="right: 0; opacity:1; transform: translate(20%, -60%) scale(1);"
+            data-15500="right: 0; opacity:0; transform: translate(20%, -60%) scale(0);"
           >
             <img src="../../assets/img/profile_me.jpg" alt="프로필이미지" />
           </div>
           <div
-            class="sec1_text11 fixed"
-            data-7000="opacity:1; left:0%; bottom:0%; transform: translate(0%, 0%) scale(0);"
-            data-7500="opacity:1; left:50%; top: 50%; transform: translate(-50%, -50%) scale(1);"
-          ></div>
-          <div
-            class="sec1_text12 fixed"
-            data-7500="opacity:0; left: 25%; top:0%; transform: translate(0%, 0%) scale(1);"
-            data-8000="opacity:1; left:50%; top: 45%; transform: translate(-50%, -50%) scale(1);"
+            class="sec1__text15 fixed"
+            data-15500="left: 50%; top:50%; opacity:0"
+            data-16000="left: 50%; top:50%; opacity:1"
+            data-16500="left: 50%; top:50%; opacity:1"
+            data-17000="top:70%; left: 50%; opacity:0"
           >
-            감사합니다.
+            감사합니다!
           </div>
         </div>
       </section>
