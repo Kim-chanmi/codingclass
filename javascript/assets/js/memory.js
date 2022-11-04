@@ -84,11 +84,11 @@ function matchCards(img1, img2) {
           card.classList.add("flip");
           card.removeEventListener("click", flipCard);
         });
-      }, 1000);
+      }, 2000);
       setTimeout(() => {
         document.querySelector(".memory__restart").style.transform = "scale(1)";
         memoryCards.style.transform = "scale(0)";
-      }, 2000);
+      }, 2500);
     }
   }
 }
