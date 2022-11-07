@@ -145,8 +145,8 @@ body {
   height: 30vh;
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 64%;
-  left: 22%;
+  top: 79%;
+  left: 21%;
   z-index: 11;
 }
 .source__inner {
