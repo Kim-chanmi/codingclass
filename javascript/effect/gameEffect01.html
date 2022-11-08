@@ -505,10 +505,12 @@
         modalCont.style.display = "none";
       });
 
-      musicClose.addEventListener("click", () => {});
-
       window.addEventListener("mousemove", (e) => {
-        gsap.to(cursor, { duration: 0, left: e.pageX, top: e.pageY });
+        gsap.to(cursor, {
+          duration: 0.03,
+          left: e.pageX - 5,
+          top: e.pageY - 5,
+        });
       });
 
       $(function () {
@@ -518,6 +520,10 @@
               "src",
               "../assets/img/gameMouse01.svg"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
         $(".icon2").draggable({
@@ -526,6 +532,10 @@
               "src",
               "../assets/img/gameMouse03.svg"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
         $(".icon3").draggable({
@@ -534,6 +544,10 @@
               "src",
               "../assets/img/gameMouse04.png"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
         $(".icon4").draggable({
@@ -542,6 +556,10 @@
               "src",
               "../assets/img/gameMouse05.png"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
         $(".icon5").draggable({
@@ -550,6 +568,10 @@
               "src",
               "../assets/img/gameMouse02.png"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
         $(".icon6").draggable({
@@ -558,12 +580,15 @@
               "src",
               "../assets/img/gameMouse06.png"
             );
+            $(this).css("z-index", "1000");
+          },
+          stop: function () {
+            $(this).css("z-index", "100");
           },
         });
       });
 
       $(".source__wrap").draggable({});
-      // $(".source__wrap, .memory__wrap, .search__game").draggable({});
       // 게임들
       $(".music__wrap").draggable({
         drag: function () {
