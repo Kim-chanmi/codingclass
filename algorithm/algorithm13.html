@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알고리즘13</title>
+    <link rel="stylesheet" href="../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <h1><a href="../index.html">Javascript</a></h1>
+      <nav class="header_nav">
+        <ul>
+          <li><a href="../javascript01.html">데이터 저장하기</a></li>
+          <li><a href="../javascript02.html">데이터 불러오기</a></li>
+          <li><a href="../javascript03.html">데이터 실행하기</a></li>
+          <li><a href="../javascript04.html">데이터 제어하기</a></li>
+        </ul>
+        <ul>
+          <li><a href="../javascript05.html">문자열 객체</a></li>
+          <li><a href="../javascript06.html">배열 객체</a></li>
+          <li><a href="../javascript07.html">수학 객체</a></li>
+          <li><a href="../javascript08.html">숫자 객체</a></li>
+          <li><a href="../javascript09.html">브라우저 객체</a></li>
+          <li><a href="../javascript10.html">요소 객체</a></li>
+          <li><a href="../javascript11.html">이벤트 객체</a></li>
+        </ul>
+        <ul class="study">
+          <li><a href="basic.html">기본 규칙</a></li>
+          <li><a href="operator.html">연산자</a></li>
+          <li><a href="for.html">반복문</a></li>
+          <li><a href="if.html">조건문</a></li>
+          <li><a href="type.html">타입</a></li>
+          <li><a href="function.html">함수</a></li>
+          <li><a href="var.html">지역변수/전역변수</a></li>
+          <li><a href="element.html">요소 선택</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+      <div class="document">
+        <h1 class="t_tit">알고리즘13</h1>
+        <h2 class="t_tit2">📝 문제 설명</h2>
+        <p class="t_desc2">
+          양의 정수 x가 하샤드 수이려면 x의 자릿수의 합으로 x가 나누어져야
+          합니다. 예를 들어 18의 자릿수 합은 1+8=9이고, 18은 9로 나누어
+          떨어지므로 18은 하샤드 수입니다. 자연수 x를 입력받아 x가 하샤드 수인지
+          아닌지 검사하는 함수, solution을 완성해주세요.
+        </p>
+        <h2 class="t_tit2">👉 제한 조건</h2>
+        <p class="t_desc2">- x는 1 이상, 10000 이하인 정수입니다.</p>
+        <h2 class="t_tit2">👉 입출력 예</h2>
+        <table class="t_table">
+          <tr>
+            <td>arr</td>
+            <td>return</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>false</td>
+          </tr>
+        </table>
+        <h2 class="t_tit2">👉 입출력 예 설명</h2>
+        <p class="t_desc2">
+          - 10의 모든 자릿수의 합은 1입니다. 10은 1로 나누어 떨어지므로 10은
+          하샤드 수입니다. <br />
+          - 12의 모든 자릿수의 합은 3입니다. 12는 3으로 나누어 떨어지므로 12는
+          하샤드 수입니다. <br />
+          - 11의 모든 자릿수의 합은 2입니다. 11은 2로 나누어 떨어지지 않으므로
+          11는 하샤드 수가 아닙니다. <br />
+          - 13의 모든 자릿수의 합은 4입니다. 13은 4로 나누어 떨어지지 않으므로
+          13은 하샤드 수가 아닙니다.
+        </p>
+        <h2 class="t_tit2">✌️ 나의 풀이</h2>
+        <div class="t_desc">
+          x를 문자열로 만들어 하나씩 분리시킨 후 for문을 이용해 자릿수들을
+          더해줍니다. 그리고 삼항연산자를 통해 true나 false를 반환합니다.
+        </div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(x) {
+    let sum = 0;
+    let arr = String(x).split('');
+
+    for(let i=0; i&lt;arr.length; i++) {
+        sum += Number(arr[i]);
+    }
+
+    return (x % sum == 0) ? true : false;
+}
+</code></pre>
+        </div>
+        <h2 class="t_tit2">👍 다른 풀이</h2>
+        <div class="t_desc">한 줄 만에 끝나는 방법입니다.</div>
+        <div class="t_code">
+          <pre><code class="language-js">function Harshad(n){
+    return !(n % (n + "").split("").reduce((a, b) => +b + +a ));
+}
+</code></pre>
+        </div>
+      </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+      <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script></script>
+  </body>
+</html>
