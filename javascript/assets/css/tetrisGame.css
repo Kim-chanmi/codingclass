@@ -5,9 +5,8 @@
   width: 720px;
   height: 850px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 30%;
+  top: 30%;
   background: rgba(0, 0, 0, 0.8);
   border: 3px solid rgb(213, 180, 236);
   animation: flicker 1.5s infinite alternate;

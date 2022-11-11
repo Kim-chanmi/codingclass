@@ -649,7 +649,6 @@
         stop: function () {
           $(".memory__wrap").css("z-index", "800");
           $("#search__game").css("z-index", "800");
-          $(".tetris__wrap").css("z-index", "800");
         },
       });
 
@@ -660,7 +659,6 @@
         stop: function () {
           $(".music__wrap").css("z-index", "800");
           $("#search__game").css("z-index", "800");
-          $(".tetris__wrap").css("z-index", "800");
         },
       });
 
@@ -671,18 +669,6 @@
         stop: function () {
           $(".memory__wrap").css("z-index", "800");
           $(".music__wrap").css("z-index", "800");
-          $(".tetris__wrap").css("z-index", "800");
-        },
-      });
-
-      $(".tetris__wrap").draggable({
-        drag: function () {
-          $(this).css("z-index", "1000");
-        },
-        stop: function () {
-          $(".memory__wrap").css("z-index", "800");
-          $(".music__wrap").css("z-index", "800");
-          $("#search__game").css("z-index", "800");
         },
       });
 
