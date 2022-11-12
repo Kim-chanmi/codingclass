@@ -6,7 +6,8 @@ const tetrisRestart = document.querySelector(".tetris__restart");
 let rows = 16;
 let cols = 11;
 let tetrisSscore = 0;
-let duration = 500;
+let tetrisDuration = 1400;
+let tetrisDurationTimeout;
 let downInterval;
 let tempMovingItem; // 임시저장소
 
@@ -217,6 +218,15 @@ function init() {
     prependNewLine(); // 블록 라인 만들기
   }
 
+  tetrisDuration = 1400;
+  tetrisSscore = 0;
+  clearInterval(tetrisDurationTimeout);
+  // renderBlocks(); // 블록 출력하기
+  tetrisDurationTimeout = setInterval(() => {
+    tetrisDuration += -100;
+    tetrisDuration <= 280 ? clearInterval(tetrisDurationTimeout) : null;
+  }, 15000);
+
   //   renderBlocks(); // 블록 출력하기
   generateNewBlock(); // 블록 만들기
 }
@@ -328,7 +338,7 @@ function generateNewBlock() {
 
   downInterval = setInterval(() => {
     moveBlock("top", 1);
-  }, duration);
+  }, tetrisDuration);
 
   // 랜덤
   const blockArray = Object.entries(blocks);
