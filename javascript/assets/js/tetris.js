@@ -1,6 +1,9 @@
 const tetrisWrap = document.querySelector(".tetris__wrap");
 const playground = tetrisWrap.querySelector(".playground > ul");
 const tetrisRestart = document.querySelector(".tetris__restart");
+const tetrisMusic = document.querySelector(".tetrisAudio");
+const tetrisMplay = document.querySelector(".tetris__music .play");
+const tetrisMstop = document.querySelector(".tetris__music .stop");
 
 // variables
 let rows = 16;
@@ -207,12 +210,26 @@ const blocks = {
 document.querySelector(".tetris__start").addEventListener("click", () => {
   document.querySelector(".tetris__card").style.display = "block";
   document.querySelector(".tetris__intro").style.display = "none";
+  tetrisMstop.style.display = "block";
   init();
+});
+
+tetrisMstop.addEventListener("click", () => {
+  tetrisMusic.pause();
+  tetrisMplay.style.display = "block";
+  tetrisMstop.style.display = "none";
+});
+
+tetrisMplay.addEventListener("click", () => {
+  tetrisMusic.play();
+  tetrisMstop.style.display = "block";
+  tetrisMplay.style.display = "none";
 });
 
 // 시작하기
 function init() {
   tempMovingItem = { ...movingItem }; // 초기화
+  tetrisMusic.play();
 
   for (let i = 0; i < rows; i++) {
     prependNewLine(); // 블록 라인 만들기

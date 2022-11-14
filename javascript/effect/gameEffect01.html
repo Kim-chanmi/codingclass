@@ -477,7 +477,7 @@
             <ul>
               <li>* 추억의 테트리스 게임</li>
               <li>* 한 줄을 제거하면 5점씩 추가됩니다.</li>
-              <li>* 속도는 점점 빨라지지 않습니다.</li>
+              <li>* 속도는 점점 빨라집니다.</li>
               <li>* START 버튼을 눌러 시작해 주세요.</li>
             </ul>
             <div class="tetris__start">START !</div>
@@ -487,6 +487,64 @@
               <h2>TETRIS GAME</h2>
               <div class="tetris__info">
                 <span>점수 : <span class="tetris__score">0</span></span>
+              </div>
+              <div class="tetris__music">
+                <div class="play">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.4188 3.12946C12.0806 2.6567 13 3.12982 13 3.94319V20.0568C13 20.8702 12.0806 21.3433 11.4188 20.8705L6 17H3C1.89543 17 1 16.1046 1 15V9C1 7.89543 1.89543 7 3 7H6L11.4188 3.12946Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M15.9942 16.9054C17.235 15.6423 18.0004 13.9106 18.0004 12.0001C18.0004 10.0816 17.2286 8.34329 15.9785 7.07886"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M18.7783 4.22192C20.7689 6.21253 22.0001 8.96253 22.0001 12.0001C22.0001 15.0377 20.7689 17.7877 18.7783 19.7783"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div class="stop">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M17 3.94317C17 3.1298 16.0806 2.65667 15.4188 3.12944L10 6.99998H7C5.89543 6.99998 5 7.89541 5 8.99998V15C5 16.1045 5.89543 17 7 17H7.22832L17 9.39978V3.94317ZM17 11.9335L10.2533 17.1809L15.4188 20.8705C16.0806 21.3433 17 20.8702 17 20.0568V11.9335Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M21 5L3 19"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <audio
+                  src="../assets/audio/tetrisBgm.mp3"
+                  class="tetrisAudio"
+                  loop="loop"
+                ></audio>
               </div>
             </div>
             <div class="tetris_play">

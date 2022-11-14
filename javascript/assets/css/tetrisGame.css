@@ -52,6 +52,21 @@
   color: white;
   font-size: 48px;
 }
+.tetris__music {
+  position: relative;
+}
+.tetris__music .play {
+  position: absolute;
+  right: 19%;
+  bottom: 30px;
+  display: none;
+}
+.tetris__music .stop {
+  position: absolute;
+  right: 19%;
+  bottom: 30px;
+  display: none;
+}
 .tetris__start {
   font-size: 45px;
   width: 200px;
