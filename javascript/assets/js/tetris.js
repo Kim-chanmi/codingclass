@@ -207,6 +207,19 @@ const blocks = {
     ],
   ],
 };
+// 테트리스게임 열기
+const tetrisOpen = document.querySelector(".icon2");
+tetrisOpen.addEventListener("click", () => {
+  tetrisWrap.style.display = "block";
+});
+
+// 테트리스게임 닫기
+const tetrisClose = document.querySelector(".tetris__close");
+tetrisClose.addEventListener("click", () => {
+  tetrisWrap.style.display = "none";
+  tetrisMusic.pause();
+});
+
 document.querySelector(".tetris__start").addEventListener("click", () => {
   document.querySelector(".tetris__card").style.display = "block";
   document.querySelector(".tetris__intro").style.display = "none";
