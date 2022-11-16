@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #contents > section {
+        min-height: 100vh;
+      }
+      #section1 {
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      }
+      #section2 {
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      }
+      #section3 {
+        background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+      }
+      #section4 {
+        background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+      }
+      #section5 {
+        background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+      }
+      #section6 {
+        background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+      }
+      .square {
+        width: 200px;
+        height: 200px;
+        background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+      }
+      .square.red {
+        background-image: linear-gradient(
+          to right,
+          #ff8177 0%,
+          #ff867a 0%,
+          #ff8c7f 21%,
+          #f99185 52%,
+          #cf556c 78%,
+          #b12a5b 100%
+        );
+      }
+      .panel {
+        height: 100vh;
+        background-color: beige;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: violet;
+      }
+      .box-red {
+        background-color: red;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        transition: all 600ms ease-in-out;
+        background-color: tan;
+        color: #000;
+        text-align: center;
+      }
+      li {
+        padding: 20px;
+        display: inline-block;
+      }
+
+      .not-active {
+        background: #fff;
+        color: #6a11cb;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>about</li>
+        <li>work</li>
+        <li>contact</li>
+      </ul>
+    </nav>
+
+    <div class="panel">
+      Creates a new standalone ScrollTrigger instance. You don't need to put
+      ScrollTriggers directly into animations (though that's probably the most
+      common use case). With a standalone ScrollTrigger, you can tap into the
+      rich callback system to do almost anything.
+    </div>
+    <!-- <div class="box"></div>
+    <div class="panel"></div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라
+
+      ScrollTrigger.create({
+        trigger: ".panel",
+        start: "top 6%",
+        markers: true,
+        toggleClass: { targets: "nav", className: "not-active" },
+        onEnter: () => console.log("onEnter"),
+        onLeave: () => console.log("onLeave"),
+        onEnterBack: () => console.log("onLeave"),
+        onLeaveBack: () => console.log("onEnterBack"),
+      });
+
+      //   gsap.to(".square", {
+      //     // x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       trigger: ".square",
+      //       start: "top 60%",
+      //       end: "top 30%",
+      //       scrub: 4, // true, 숫자 둘 다 가능
+      //       markers: {
+      //         startColor: "blue",
+      //         endColor: "purple",
+      //         fontSize: "30px",
+      //       },
+      //       // class 생성
+      //       toggleClass: "red",
+      //       toggleActions: "restart none none none",
+      //       pin: true,
+      //       pinSpacint: false,
+      //     },
+      //   });
+      //   gsap.to(".square", {
+      //     x: 1000,
+      //     duration: 2,
+      //     skewX: 1,
+      //     rotation: 100,
+      //     borderRadius: 0,
+      //   });
+      //   gsap.to(".square", {
+      //     y: 500,
+      //     duration: 2,
+      //     skew: 3,
+      //     borderRadius: 100,
+      //     rotation: 0,
+      //     delay: 2,
+      //   });
+      //   gsap.to(".square", {
+      //     x: 0,
+      //     duration: 2,
+      //     width: 400,
+      //     rotation: 300,
+      //     delay: 4,
+      //   });
+      //   gsap.to(".square", {
+      //     y: 0,
+      //     duration: 2,
+      //     skewX: 1,
+      //     rotation: 0,
+      //     width: 200,
+      //     delay: 6,
+      //   });
+
+      //   // 한번에
+      //   const tl = gsap.timeline({ repeat: 2, yoyo: true });
+      // tl.to(".square", {
+      //   x: 1000,
+      //   duration: 2,
+      //   skewX: 1,
+      //   rotation: 100,
+      //   ease: "elastic",
+      //   borderRadius: 0,
+      // })
+      //   .to(".square", {
+      //     y: 500,
+      //     duration: 2,
+      //     skew: 3,
+      //     borderRadius: 100,
+      //     rotation: 0,
+      //     ease: "elastic",
+      //     delay: 2,
+      //   })
+      //   .to(
+      //     ".square",
+      //     {
+      //       x: 0,
+      //       duration: 2,
+      //       width: 400,
+      //       rotation: 300,
+      //       ease: "elastic",
+      //       delay: 4,
+      //     },
+      //     "-=1" // 1초 쉬었다가 움직여
+      //   )
+      //   .to(".square", {
+      //     y: 0,
+      //     duration: 2,
+      //     skewX: 1,
+      //     rotation: 0,
+      //     width: 200,
+      //     ease: "elastic",
+      //     delay: 6,
+      //   });
+
+      //타임라인
+      //   const tl = gsap.timeline({
+      //     scrollTrigger: {
+      //       trigger: ".square",
+      //       markers: true,
+      //       start: "top 80%",
+      //       end: "top 30%",
+      //       scrub: 1,
+      //     },
+      //   });
+
+      //   tl.to(".square", {
+      //     x: 1000,
+      //     duration: 2,
+      //     skewX: 1,
+      //     rotation: 100,
+      //     ease: "elastic",
+      //     borderRadius: 0,
+      //   })
+      //     .to(".square", {
+      //       y: 500,
+      //       duration: 2,
+      //       skew: 3,
+      //       borderRadius: 100,
+      //       rotation: 0,
+      //       ease: "elastic",
+      //       delay: 2,
+      //     })
+      //     .to(".square", {
+      //       x: 0,
+      //       duration: 2,
+      //       width: 400,
+      //       rotation: 300,
+      //       ease: "elastic",
+      //       delay: 4,
+      //     })
+      //     .to(".square", {
+      //       y: 0,
+      //       duration: 2,
+      //       skewX: 1,
+      //       rotation: 0,
+      //       width: 200,
+      //       ease: "elastic",
+      //       delay: 6,
+      //     });
+    </script>
+    <script>
+      // gsap 기본
+      //   gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라ㅂ
+
+      //   gsap.to(".square", {
+      //     x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       // 무엇을 기준으로 움직이냐
+      //       trigger: ".square",
+      //       // 시작 위치값
+      //       start: "top 60%",
+      //       // 가로모드에서 유용
+      //       end: () => `+=${document.querySelector(".square").offsetHeight}`,
+      //       markers: true,
+      //       // class 생성
+      //       toggleClass: "red",
+      //     },
+      //   });
+      //   gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라ㅂ
+
+      // 마커스에 색상지정
+      //   gsap.to(".square", {
+      //     x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       // 무엇을 기준으로 움직이냐
+      //       trigger: ".square",
+      //       // 시작 위치값
+      //       start: "top 60%",
+      //       // 가로모드에서 유용
+      //       end: "bottom 30%",
+      // 마커스에 색상지정
+      //       markers: {
+      //         startColor: "blue",
+      //         endColor: "purple",
+      //         fontSize: "30px",
+      //       },
+      //       // class 생성
+      //       toggleClass: "red",
+      //     },
+      //   });
+
+      // toggleAction
+      //   gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라ㅂ
+
+      //   gsap.to(".square", {
+      //     x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       // 무엇을 기준으로 움직이냐
+      //       trigger: ".square",
+      //       // 시작 위치값
+      //       start: "top 60%",
+      //       // 가로모드에서 유용
+      //       end: "top 30%",
+      //       markers: {
+      //         startColor: "blue",
+      //         endColor: "purple",
+      //         fontSize: "30px",
+      //       },
+      //       // class 생성
+      //       toggleClass: "red",
+      //       // toggleActions 순서 : onEnter onLeave onEnterBack onLeaveBack
+      //       // play, pause, resume, reset, restart, complete, reverse, none
+      //       toggleActions: "restart pause resume reset",
+      //     },
+      //   });
+
+      //scrub(스크롤 할 때마다 움직이기)
+      // gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라ㅂ
+
+      //   gsap.to(".square", {
+      //     x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       trigger: ".square",
+      //       start: "top 60%",
+      //       end: "top 30%",
+      //       scrub: 4, // true, 숫자 둘 다 가능
+      //       markers: {
+      //         startColor: "blue",
+      //         endColor: "purple",
+      //         fontSize: "30px",
+      //       },
+      //       // class 생성
+      //       toggleClass: "red",
+      //       toggleActions: "restart none none none",
+      //     },
+      //   });
+
+      //pin(고정)
+      //  gsap.registerPlugin(ScrollTrigger); // 스크롤 하면 움직여라ㅂ
+
+      //   gsap.to(".square", {
+      //     // x: 1000,
+      //     duration: 3,
+      //     scrollTrigger: {
+      //       trigger: ".square",
+      //       start: "top 60%",
+      //       end: "top 30%",
+      //       scrub: 4, // true, 숫자 둘 다 가능
+      //       markers: {
+      //         startColor: "blue",
+      //         endColor: "purple",
+      //         fontSize: "30px",
+      //       },
+      //       // class 생성
+      //       toggleClass: "red",
+      //       toggleActions: "restart none none none",
+      //       pin: true,
+      //       pinSpacint: false,
+      //     },
+      //   });
+    </script>
+  </body>
+</html>
