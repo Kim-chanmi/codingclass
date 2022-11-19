@@ -28,11 +28,12 @@
   width: 20px;
 }
 
-.resionTop__card {
+.resion__inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   vertical-align: top;
+  margin-bottom: 130px;
 }
 
 .resionTopCard {
@@ -52,4 +53,40 @@
 
 .resionDesc .descTitle {
   font-size: 16px;
+}
+
+.price em {
+  text-decoration: line-through;
+  color: #666;
+  margin-right: 5px;
+}
+
+.resionBom__card h2 {
+  text-align-last: left;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.resionbomDate {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.resionBom__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.resionBomCard {
+  width: 24%;
+  margin-bottom: 50px;
+}
+
+.resionBomdesc {
+  text-align: left;
+  margin-top: 6px;
+}
+
+.resionBomdesc .star {
+  float: right;
 }
