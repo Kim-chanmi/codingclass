@@ -2,6 +2,11 @@
     include "../connect/connect.php";
     include "../connect/session.php";
     include "../connect/sessionCheck.php";
+
+    $MemberID = $_SESSION['memberID'];
+    $sql = "SELECT * FROM Member WHERE memberID = $MemberID";
+    $result = $connect -> query($sql);
+    $info = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -42,11 +47,11 @@
                         <ul>
                             <li>
                                 <strong>이메일</strong>
-                                <span>webstoryboy@naver.com</span>
+                                <span><?=$info['youEmail']?></span>
                             </li>
                             <li>
                                 <strong>이름</strong>
-                                <span>황상연</span>
+                                <span><?=$info['youName']?></span>
                             </li>
                             <li>
                                 <strong>닉네임</strong>
@@ -54,15 +59,11 @@
                             </li>
                             <li>
                                 <strong>생일</strong>
-                                <span>1999-09-03</span>
+                                <span><?=$info['youBirth']?></span>
                             </li>
                             <li>
                                 <strong>연락처</strong>
-                                <span>010-0333-0444</span>
-                            </li>
-                            <li>
-                                <strong>성별</strong>
-                                <span>남자</span>
+                                <span><?=$info['youPhone']?></span>
                             </li>
                             <li>
                                 <strong>웹 사이트</strong>

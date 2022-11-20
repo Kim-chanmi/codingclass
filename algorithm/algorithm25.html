@@ -43,82 +43,72 @@
     <!-- //header -->
     <main id="main">
       <div class="document">
-        <h1 class="t_tit">프로그래머스 1단계 : 콜라츠 추측</h1>
+        <h1 class="t_tit">프로그래머스 1단계 : 이상한 문자 만들기</h1>
         <h2 class="t_tit2">📝 문제 설명</h2>
         <p class="t_desc2">
-          1937년 Collatz란 사람에 의해 제기된 이 추측은, 주어진 수가 1이 될
-          때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다.
-          작업은 다음과 같습니다. <br /><br />
-          1-1. 입력된 수가 짝수라면 2로 나눕니다. <br />
-          1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다. <br />
-          2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다. <br /><br />
-          예를 들어, 주어진 수가 6이라면 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 이
-          되어 총 8번 만에 1이 됩니다. 위 작업을 몇 번이나 반복해야 하는지
-          반환하는 함수, solution을 완성해 주세요. 단, 주어진 수가 1인 경우에는
-          0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
+          문자열 s는 한 개 이상의 단어로 구성되어 있습니다. 각 단어는 하나
+          이상의 공백문자로 구분되어 있습니다. 각 단어의 짝수번째 알파벳은
+          대문자로, 홀수번째 알파벳은 소문자로 바꾼 문자열을 리턴하는 함수,
+          solution을 완성하세요.
         </p>
         <h2 class="t_tit2">👉 제한 사항</h2>
         <p class="t_desc2">
-          - 입력된 수, num은 1 이상 8,000,000 미만인 정수입니다.
+          - 문자열 전체의 짝/홀수 인덱스가 아니라, 단어(공백을 기준)별로 짝/홀수
+          인덱스를 판단해야합니다. <br />
+          - 첫 번째 글자는 0번째 인덱스로 보아 짝수번째 알파벳으로 처리해야
+          합니다.
         </p>
         <h2 class="t_tit2">👉 입출력 예</h2>
         <table class="t_table">
           <tr>
-            <td>n</td>
-            <td>result</td>
+            <td>s</td>
+            <td>return</td>
           </tr>
           <tr>
-            <td>6</td>
-            <td>8</td>
-          </tr>
-          <tr>
-            <td>16</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>626331</td>
-            <td>-1</td>
+            <td>"try hello world"</td>
+            <td>"TrY HeLlO WoRlD"</td>
           </tr>
         </table>
         <h2 class="t_tit2">👉 입출력 예 설명</h2>
-        <div class="t_desc">
-          - 16 → 8 → 4 → 2 → 1 이 되어 총 4번 만에 1이 됩니다. <br />
-          - 626331은 500번을 시도해도 1이 되지 못하므로 -1을 리턴해야 합니다.
-        </div>
+        <p class="t_desc2">
+          "try hello world"는 세 단어 "try", "hello", "world"로 구성되어
+          있습니다. 각 단어의 짝수번째 문자를 대문자로, 홀수번째 문자를 소문자로
+          바꾸면 "TrY", "HeLlO", "WoRlD"입니다. 따라서 "TrY HeLlO WoRlD" 를
+          리턴합니다.
+        </p>
         <h2 class="t_tit2">✌️ 나의 풀이</h2>
         <div class="t_desc">
-          if문을 활용하여 풀었습니다. 주석을 참고해주세요
+          먼저 split()을 이용해 하나씩 조각냅니다. 2중 for문과 if문을 이용해
+          홀수자리인지 짝수자리인지 판단하여 toUpperCase()와 toLowerCase()를
+          통해 각가 변환했습니다.
         </div>
         <div class="t_code">
-          <pre><code class="language-js">function solution(num) {
-    var answer = 0;
+          <pre><code class="language-js">function solution(s) {
+    let answer = '';
+    let words = s.split(' ');
     
-    for(let i = 0; i &lt; 500; i++) {      
-        if(num != 1) {              //1이아니면
-            if (num%2 == 0){        //짝수일 때
-                num = num/ 2;
-            }else{                  //홀수일 때
-                num = num*3+1;
+    for (let i = 0; i &lt; words.length; i++) {
+        for(let j = 0; j &lt; words[i].length; j++) {
+            if(j % 2 === 0) {
+                answer += words[i][j].toUpperCase();
+            } else {
+                answer += words[i][j].toLowerCase();
             }
-        } else {                    //1이면
-            return answer = i;      //횟수반환
+        }
+        if (i &lt; words.length -1) {
+            answer += ' ';
         }
     }
-    return answer = -1;             //500넘으면 -1 출력
+    return answer;
 }
 </code></pre>
         </div>
         <h2 class="t_tit2">👍 다른 풀이</h2>
-        <div class="t_desc">while문으로 풀면 좀 더 간단하게 풀 수 있대요~!</div>
+        <div class="t_desc">정규식 표현을 활용했네요.</div>
         <div class="t_code">
-          <pre><code class="language-js">function collatz(num) {
-    var answer = 0;
-    while(num !=1 && answer !=500){
-        num%2==0 ? num = num/2 : num = num*3 +1;
-    answer++;
-  }
-    return num == 1 ? answer : -1;
-}
+          <pre><code class="language-js">function toWeirdCase(s){
+    return s.toUpperCase().replace(/(\w)(\w)/g, function(a){return a[0].toUpperCase()+a[1].toLowerCase();})
+}   
 </code></pre>
         </div>
       </div>
