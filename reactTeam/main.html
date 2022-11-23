@@ -1,10 +1,17 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AirCnC 메인</title>
+
+    <link
+      href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css"
+      rel="stylesheet"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -49,7 +56,7 @@
   <body>
     <div class="all score">
       <div class="left">
-        <aside id="aside">
+        <aside id="aside" class="active">
           <div class="aside__inner">
             <div class="menu">
               <img src="assets/img/menu.jpg" alt="" />
@@ -64,65 +71,197 @@
               <img src="assets/img/jeju.jpg" alt="제주" />
               <img src="assets/img/gangneung.jpg" alt="강릉" />
             </div>
+            <!-- <div class="scroll">0</div> -->
           </div>
         </aside>
+        <div class="region_box">
+          <div class="region_name">
+            <li>서울</li>
+            <li>대구</li>
+            <li>대전</li>
+            <li>부산</li>
+            <li>경주</li>
+            <li>전주</li>
+            <li>제주</li>
+            <li>강릉</li>
+          </div>
+        </div>
       </div>
       <div class="right">
         <header id="header">
           <img src="assets/img/logo.png" alt="로고이미지" />
+          <form action="/" method="GET" id="header_search" class="close">
+            <fieldset class="roomSearch">
+              <legend class="ir">호텔 검색</legend>
+              <div class="home">
+                <label for="region"></label>
+                <img src="assets/img/home.svg" alt="집이미지" />
+                <input
+                  type="text"
+                  id="region"
+                  name="region"
+                  placeholder="도시/호텔을 적어주세요."
+                  required
+                />
+              </div>
+              <div class="calender">
+                <img src="assets/img/calender.svg" alt="달력이미지" />
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  value="2022-11-21"
+                  required
+                />
+                <span class="date_hyphen">-</span>
+                <input
+                  type="date"
+                  id="last_date"
+                  name="last_date"
+                  value="2022-11-23"
+                  required
+                />
+              </div>
+              <div class="guest">
+                <img src="assets/img/person.svg" alt="사람이미지" />
+                <label for="room">객실</label>
+                <select id="room" name="room" required>
+                  <option value="1개">1개</option>
+                  <option value="2개">2개</option>
+                  <option value="3개">3개</option>
+                  <option value="4개">4개</option>
+                </select>
+                <label for="tourist">투숙객</label>
+                <select id="tourist" name="tourist" required>
+                  <option value="1명">1명</option>
+                  <option value="2명">2명</option>
+                  <option value="3명">3명</option>
+                  <option value="4명">4명</option>
+                  <option value="5명">5명</option>
+                  <option value="단체">단체</option>
+                </select>
+              </div>
+              <button class="searchBtn">
+                <img src="assets/img/search.svg" alt="검색이미지" />
+              </button>
+            </fieldset>
+          </form>
         </header>
         <section id="bannerType">
           <img src="assets/img/banner.jpg" alt="배너이미지" />
-          <h2 class="poppins">Find your travel moments and leave!</h2>
-          <div class="roomSearch">
-            <div class="home">
-              <img src="assets/img/home.svg" alt="집이미지" />
-              <span>서울, 신라호텔</span>
-            </div>
-            <div class="calender">
-              <img src="assets/img/calender.svg" alt="달력이미지" />
-              <span>11/18 금 - 11/19 토</span>
-            </div>
-            <div class="guest">
-              <img src="assets/img/person.svg" alt="사람이미지" />
-              <span>객실 1개, 투숙객 2명</span>
-            </div>
-            <div class="search">
-              <img src="assets/img/search.svg" alt="검색이미지" />
-            </div>
+          <div class="bannerInput">
+            <h2 class="poppins">Find your travel moments and leave!</h2>
+            <form action="/" method="GET">
+              <fieldset class="roomSearch">
+                <legend class="ir">호텔 검색</legend>
+                <div class="home">
+                  <label for="region"></label>
+                  <img src="assets/img/home.svg" alt="집이미지" />
+                  <input
+                    type="text"
+                    id="region"
+                    name="region"
+                    placeholder="도시 또는 호텔을 입력해주세요."
+                    required
+                  />
+                </div>
+                <div class="calender">
+                  <img src="assets/img/calender.svg" alt="달력이미지" />
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    value="2022-11-21"
+                    required
+                  />
+                  <span class="date_hyphen">-</span>
+                  <input
+                    type="date"
+                    id="last_date"
+                    name="last_date"
+                    value="2022-11-23"
+                    required
+                  />
+                  <!-- <span>11/18 금 - 11/19 토</span> -->
+                </div>
+                <div class="guest">
+                  <img src="assets/img/person.svg" alt="사람이미지" />
+                  <label for="room">객실</label>
+                  <select id="room" name="room" required>
+                    <option value="1개">1개</option>
+                    <option value="2개">2개</option>
+                    <option value="3개">3개</option>
+                    <option value="4개">4개</option>
+                  </select>
+                  <!-- <span>객실 1개, 투숙객 2명</span> -->
+                  <label for="tourist">투숙객</label>
+                  <select id="tourist" name="tourist" required>
+                    <option value="1명">1명</option>
+                    <option value="2명">2명</option>
+                    <option value="3명">3명</option>
+                    <option value="4명">4명</option>
+                    <option value="5명">5명</option>
+                    <option value="단체">단체</option>
+                  </select>
+                </div>
+                <button class="searchBtn">
+                  <img src="assets/img/search.svg" alt="검색이미지" />
+                </button>
+              </fieldset>
+            </form>
           </div>
         </section>
         <section id="contentsType" class="container">
           <div class="contents__top">
             <div class="title">
-              <h2 class="chosun">스폐셜호텔</h2>
+              <h2 class="chosun">스폐셜 호텔</h2>
               <p class="chosun">SPECIAL HOTEL</p>
             </div>
             <div class="cardType">
               <div class="card__inner">
                 <div class="card card1">
                   <img src="assets/img/mainCard01.jpg" alt="서울시그니엘" />
+                  <span class="card_name">
+                    <em class="card_region">서울</em>
+                    <em class="card_hotel">시그니엘</em>
+                  </span>
                 </div>
                 <div class="card card2">
                   <img
                     src="assets/img/mainCard02.jpg"
                     alt="제주 그랜드 하얏트"
                   />
+                  <span class="card_name">
+                    <em class="card_region">제주</em>
+                    <em class="card_hotel">그랜드 하얏트</em>
+                  </span>
                 </div>
                 <div class="cardCenter card3">
                   <img src="assets/img/mainCard03.jpg" alt="서울 신라 호텔" />
+                  <span class="card_name">
+                    <em class="card_region">서울</em>
+                    <em class="card_hotel">신라 호텔</em>
+                  </span>
                 </div>
                 <div class="card card4">
                   <img
                     src="assets/img/mainCard04.jpg"
                     alt="대구 디지털 하우스"
                   />
+                  <span class="card_name">
+                    <em class="card_region">대구</em>
+                    <em class="card_hotel">디지털 하우스</em>
+                  </span>
                 </div>
                 <div class="card card5">
                   <img
                     src="assets/img/mainCard05.jpg"
                     alt="부산 파라다이스 호텔"
                   />
+                  <span class="card_name">
+                    <em class="card_region">부산</em>
+                    <em class="card_hotel">파라다이스 호텔</em>
+                  </span>
                 </div>
               </div>
             </div>
@@ -184,7 +323,7 @@
       </div>
     </div>
 
-    <footer id="footer">
+    <footer id="footer score  ">
       <div class="footer__inner">
         <div class="footer__left">
           <img src="assets/img/footerLogo.png" alt="로고" />
@@ -221,5 +360,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="assets/js/asideMenu.js"></script>
   </body>
 </html>

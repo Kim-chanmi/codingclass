@@ -3,8 +3,8 @@
     include "../connect/session.php";
     include "../connect/sessionCheck.php";
 
-    $MemberID = $_SESSION['memberID'];
-    $sql = "SELECT * FROM Member WHERE memberID = $MemberID";
+    $MemberID = $_SESSION['myMemberID'];
+    $sql = "SELECT * FROM myMember WHERE myMemberID = $MemberID";
     $result = $connect -> query($sql);
     $info = $result -> fetch_array(MYSQLI_ASSOC);
 ?>
@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP 사이트 만들기</title>
 
-    <?php include "../include/head.php" ?>
+    <?php include "../include/link.php" ?>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                         <img src="../assets/img/imgDefault.svg" alt="s">
                     </div>
                     <div class="intro">
-                        웹과 코딩에 관심이 많은 웹스토리보이입니다.
+                        웹과 코딩에 관심이 많은 <?=$info['youName']?>입니다.
                     </div>
                     <div class="info">
                         <ul>
@@ -55,26 +55,18 @@
                             </li>
                             <li>
                                 <strong>닉네임</strong>
-                                <span>리치클럽</span>
-                            </li>
-                            <li>
-                                <strong>생일</strong>
-                                <span><?=$info['youBirth']?></span>
+                                <span><?=$info['youNickName']?></span>
                             </li>
                             <li>
                                 <strong>연락처</strong>
                                 <span><?=$info['youPhone']?></span>
-                            </li>
-                            <li>
-                                <strong>웹 사이트</strong>
-                                <span></span>
                             </li>
                         </ul>
                     </div>
                     <div class="btn">
                         <a href="mypageModify.php">수정하기</a>
                         <a href="mypageRemove.php">탈퇴하기</a>
-                        <a href="mypageRemove.php">로그아웃</a>
+                        <a href="../login/logout.php">로그아웃</a>
                     </div>
 
                 </div>

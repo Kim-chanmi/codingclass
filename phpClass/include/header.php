@@ -1,3 +1,9 @@
+<?php
+    include "../connect/connect.php";
+    include "../connect/session.php";
+?>
+
+
 <header id="header">
     <div class="header__inner container">
         <div class="left">
@@ -7,7 +13,7 @@
             <a href="../main/main.php">PHP BLOG</a>
         </h1>
         <div class="right">
-            <?php if(isset($_SESSION['memberID'])){ ?>
+            <?php if(isset($_SESSION['myMemberID'])){ ?>
             <ul>
                 <li><a href="../mypage/mypage.php" class="black"><?=$_SESSION['youName']?>님 환영합니다.</a></li>
                 <li><a href="../login/logout.php">로그아웃</a></li>

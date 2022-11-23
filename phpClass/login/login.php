@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP 사이트 만들기</title>
-    <?php include "../include/head.php"?>
+    <?php include "../include/link.php"?>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
             </p>
             <div class="login__inner">
                 <div class="login__contents">
-                    <form name="login" action="loginSave.php" method="post">
+                    <form name="login" action="../login/loginSave.php" method="post">
                         <fieldset>
                             <legend class="blind">로그인 입력폼</legend>
                             <div>
@@ -58,7 +58,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- //login -->
     </main>

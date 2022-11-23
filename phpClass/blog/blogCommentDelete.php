@@ -1,11 +1,11 @@
 <?php
     include "../connect/connect.php";
+    $myCommentID = $_POST['commentID'];
+    $pass = $_POST['pass'];
+    $regTime = time();
 
-    $commentPass = $_POST['pass'];
-    $commentID = $_POST['commentID'];
-
-    $sql = "DELETE FROM myComment WHERE myCommentID = {$commentID}";
+    $sql = "DELETE FROM myComment WHERE commentID=$myCommentID";
     $result = $connect -> query($sql);
 
-    echo json_encode(array("info" => $commentID));
+    echo json_encode(array("info" => $myCommentID));
 ?>

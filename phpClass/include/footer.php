@@ -1,7 +1,7 @@
 <footer id="footer">
     <h2 class="blind">푸터 영역입니다.</h2>
     <div class="footer__inner container">
-        <address>Copyright @2022 webstoryboy</address>
-        <div><a href="index.html">blog by webstoryboy</a></div>
+        <address>Copyright @2022 Chanmi</address>
+        <div><a href="../main/main.php">blog by Chanmi</a></div>
     </div>
 </footer>

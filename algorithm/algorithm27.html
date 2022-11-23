@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알고리즘14</title>
+    <link rel="stylesheet" href="../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <h1><a href="../index.html">Javascript</a></h1>
+      <nav class="header_nav">
+        <ul>
+          <li><a href="../javascript01.html">데이터 저장하기</a></li>
+          <li><a href="../javascript02.html">데이터 불러오기</a></li>
+          <li><a href="../javascript03.html">데이터 실행하기</a></li>
+          <li><a href="../javascript04.html">데이터 제어하기</a></li>
+        </ul>
+        <ul>
+          <li><a href="../javascript05.html">문자열 객체</a></li>
+          <li><a href="../javascript06.html">배열 객체</a></li>
+          <li><a href="../javascript07.html">수학 객체</a></li>
+          <li><a href="../javascript08.html">숫자 객체</a></li>
+          <li><a href="../javascript09.html">브라우저 객체</a></li>
+          <li><a href="../javascript10.html">요소 객체</a></li>
+          <li><a href="../javascript11.html">이벤트 객체</a></li>
+        </ul>
+        <ul class="study">
+          <li><a href="basic.html">기본 규칙</a></li>
+          <li><a href="operator.html">연산자</a></li>
+          <li><a href="for.html">반복문</a></li>
+          <li><a href="if.html">조건문</a></li>
+          <li><a href="type.html">타입</a></li>
+          <li><a href="function.html">함수</a></li>
+          <li><a href="var.html">지역변수/전역변수</a></li>
+          <li><a href="element.html">요소 선택</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+      <div class="document">
+        <h1 class="t_tit">프로그래머스 1단계 : 음양 더하기</h1>
+        <h2 class="t_tit2">📝 문제 설명</h2>
+        <p class="t_desc2">
+          어떤 정수들이 있습니다. 이 정수들의 절댓값을 차례대로 담은 정수 배열
+          absolutes와 이 정수들의 부호를 차례대로 담은 불리언 배열 signs가
+          매개변수로 주어집니다. 실제 정수들의 합을 구하여 return 하도록
+          solution 함수를 완성해주세요.
+        </p>
+        <h2 class="t_tit2">👉 제한 사항</h2>
+        <p class="t_desc2">
+          - absolutes의 길이는 1 이상 1,000 이하입니다. <br />
+          - bsolutes의 모든 수는 각각 1 이상 1,000 이하입니다. <br />
+          - signs의 길이는 absolutes의 길이와 같습니다. <br />
+          - signs[i] 가 참이면 absolutes[i] 의 실제 정수가 양수임을, 그렇지
+          않으면 음수임을 의미합니다.
+        </p>
+        <h2 class="t_tit2">👉 입출력 예</h2>
+        <table class="t_table">
+          <tr>
+            <td>absolutes</td>
+            <td>signs</td>
+            <td>result</td>
+          </tr>
+          <tr>
+            <td>[4,7,12]</td>
+            <td>[true,false,true]</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>[1,2,3]</td>
+            <td>[false,false,true]</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <h2 class="t_tit2">✌️ 나의 풀이</h2>
+        <div class="t_desc">
+          for문과 조건문을 이용합니다. signs 배열의 값이 true이면 '+', false이면
+          '-'로 계산합니다.
+        </div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(absolutes, signs) {
+    let answer = 0;
+    for (let i = 0; i &lt; absolutes.length; i++) {
+        if (signs[i] === true) {
+            answer = answer + absolutes[i];
+        } else {
+            answer = answer - absolutes[i];
+        }
+    }
+    return answer
+}
+</code></pre>
+        </div>
+        <h2 class="t_tit2">👍 다른 풀이</h2>
+        <div class="t_desc">reduce()와 삼항연산자를 이용한 풀이방법입니다.</div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(absolutes, signs) {
+
+    return absolutes.reduce((acc, val, i) => acc + (val * (signs[i] ? 1 : -1)), 0);
+}
+</code></pre>
+        </div>
+      </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+      <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script></script>
+  </body>
+</html>

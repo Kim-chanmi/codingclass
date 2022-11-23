@@ -1,4 +1,9 @@
-/* 여백 초기화 */
+/**
+ * /* 여백 초기화
+ *
+ * @format
+ */
+
 body,
 div,
 dl,
@@ -86,6 +91,7 @@ h6 {
 em,
 address {
   font-style: normal;
+  font-weight: normal;
 }
 
 /* 이미지 초기화 */

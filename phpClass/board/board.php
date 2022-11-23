@@ -1,20 +1,8 @@
 <?php
     include "../connect/connect.php";
     include "../connect/session.php";
-
-    if(isset($_GET['page'])){
-        $page = (int) $_GET['page'];
-    } else {
-        $page = 1;
-    }
-    $viewNum = 10;
-    $viewLimit = ($viewNum * $page) - $viewNum;
-    //echo $_GET['page'];
-    //1~20  --> 1page  : DESC 0,  20  ---> ($viewNum * 1) - $viewNum
-    //21~40 --> 2page  : DESC 20, 20  ---> ($viewNum * 2) - $viewNum
-    //41~60 --> 3page  : DESC 40, 20  ---> ($viewNum * 3) - $viewNum
-    //61~80 --> 4page  : DESC 60, 20  ---> ($viewNum * 4) - $viewNum
 ?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -22,9 +10,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP 사이트 만들기</title>
+    <title>게시판</title>
 
-    <?php include "../include/head.php" ?>
+    <?php
+        include "../include/link.php";
+    ?>
 </head>
 
 <body>
@@ -33,33 +23,41 @@
         <a href="#main">컨텐츠 영역 바로가기</a>
         <a href="#footer">푸터 영역 바로가기</a>
     </div>
-    <!-- //skip -->
+    <!-- // skip -->
 
-    <?php include "../include/header.php" ?>
-    <!-- header -->
+    <?php include "../include/header.php";?>
+    <!-- // header -->
 
     <main id="main">
-        <section id="board" class="container section">
-            <h2>개발자 게시판</h2>
-            <p>웹디자이너, 웹퍼블리셔, 프론트앤드 개발자를 위한 게시판입니다.</p>
+        <section id="board" class="container">
+            <h2>게시판 영역 입니다.</h2>
             <div class="board__inner">
+                <div class="board__title">
+                    <h3>게시판</h3>
+                    <p>웹 디자이너, 웹 퍼블리셔, 프론트엔드 개발자를 위한 게시판입니다.</p>
+                </div>
                 <div class="board__search">
                     <div class="left">
-                        * 총 <em>1111</em>건의 게시물이 등록되어 있습니다.
+                        <?php
+                        $sql = "SELECT * FROM myBoard;";
+                        $result = $connect -> query($sql);
+                        $total = $result -> num_rows;
+                    ?>
+                        * 총 <em><?= $total?></em> 건의 게시물이 등록되어 있습니다.
                     </div>
                     <div class="right">
-                        <form action="boardSearch.php" name="boardSearch" method="get">
+                        <form action="boardSearch.php" method="get" name="boardSearch">
                             <fieldset>
-                                <legend class="blind">게시판 검색 영역</legend>
-                                <input type="search" name="searchKeyword" id="searchKeyword" class="input_style2"
-                                    placeholder="검색어를 입력하세요!" aria-label="search" required>
-                                <select name="searchOption" id="searchOption" class="select_style1">
+                                <legend>게시판 검색 영역</legend>
+                                <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요!"
+                                    aria-label="search" required>
+                                <select name="searchOption" id="searchOption">
                                     <option value="title">제목</option>
                                     <option value="content">내용</option>
                                     <option value="name">등록자</option>
                                 </select>
-                                <button type="submit" class="btn btn_style3">검색</button>
-                                <a href="boardWrite.php" class="btn btn_style4">글쓰기</a>
+                                <button type="submit" class="searchBtn">검색</button>
+                                <a href="boardWrite.php" class="btn">글쓰기</a>
                             </fieldset>
                         </form>
                     </div>
@@ -67,12 +65,13 @@
                 <div class="board__table">
                     <table>
                         <colgroup>
-                            <col style="width: 5%">
+                            <col style="width: 5%;">
                             <col>
-                            <col style="width: 10%">
-                            <col style="width: 10%">
-                            <col style="width: 7%">
+                            <col style="width: 10%;">
+                            <col style="width: 10%;">
+                            <col style="width: 7%;">
                         </colgroup>
+
                         <thead>
                             <tr>
                                 <th>번호</th>
@@ -82,88 +81,117 @@
                                 <th>조회수</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <?php
-    // 두개의 테이블 join
-    $sql = "SELECT b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView FROM myBoard b JOIN myMember m ON (b.memberID = m.memberID) ORDER BY boardID DESC LIMIT {$viewLimit}, {$viewNum}";
-    $result = $connect -> query($sql);
-    if($result){
-        $count = $result -> num_rows;
-        if($count > 0){
-            for($i=1; $i <= $count; $i++){
-                $info = $result -> fetch_array(MYSQLI_ASSOC);
-                echo "<tr>";
-                echo "<td>".$info['boardID']."</td>";
-                echo "<td><a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</td>";
-                echo "<td>".$info['youName']."</td>";
-                echo "<td>".date('Y-m-d', $info['regTime'])."</td>";
-                echo "<td>".$info['boardView']."</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='5'>게시글이 없습니다.</td></tr>";
-        }
-    }
-?>
+                            if(isset($_GET['page'])) {
+                                $page = (int)$_GET['page'];
+                            }
+                            else {
+                                $page = 1;
+                            }
+                            $viewNum = 10;
+                            $viewLimit = ($viewNum * $page) - $viewNum;
+                            
+                            $sql = "SELECT count(boardID) FROM myBoard";
+                            $result = $connect -> query($sql);
+
+                            $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
+                            $boardCount = $boardCount['count(boardID)'];
+
+                            // 1 ~ 20 => 1번째 페이지 : DESC 0, 20
+                            // 21 ~ 40 => 2번째 페이지 : DESC 20, 20
+                            // join
+                            $sql = "SELECT b.boardID, b.boardTitle, m.youName, b.regTime, b.boardView FROM myBoard b JOIN myMember m ON (b.memberID = m.myMemberID) ORDER BY boardID DESC LIMIT {$viewLimit}, {$viewNum}";
+                            $result = $connect -> query($sql);
+                            
+                            if($result) {
+                                $count = $result -> num_rows;
+                                if($count > 0) {
+                                    for($i = 1; $i <= $count; $i++) {
+                                        $info = $result -> fetch_array(MYSQLI_ASSOC);
+                                        echo "<tr>";
+                                        echo "<td>".$info['boardID']."</td>";
+                                        echo "<td><a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</a></td>";
+                                        echo "<td>".$info['youName']."</td>";
+                                        echo "<td>".date('Y-m-d', $info['regTime'])."</td>";
+                                        echo "<td>".$info['boardView']."</td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                else {
+                                    echo "<tr><td colspan='4'>게시글이 없습니다.</td></tr>";
+                                }
+                            }
+                        ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="board__pages">
                     <ul>
+
                         <?php
-    $sql = "SELECT count(boardID) FROM myBoard";
-    $result = $connect -> query($sql);
-    $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
-    $boardCount = $boardCount['count(boardID)'];
+                        $sql = "SELECT count(boardID) FROM myBoard";
+                        $result = $connect -> query($sql);
 
-    // 총 페이지 갯수
-    $boardCount = ceil($boardCount/$viewNum);
+                        $boardCount = $result -> fetch_array(MYSQLI_ASSOC);
+                        $boardCount = $boardCount['count(boardID)'];
 
-    // echo $boardCount;
-    // 현재 페이지를 기준으로 보여주고 싶은 갯수
-    $pageCurrent = 5;
-    $startPage = $page - $pageCurrent;
-    $endPage = $page + $pageCurrent;
+                        // 총 페이지 개수
+                        $boardCount = ceil($boardCount / $viewNum);
 
-    // 처음 페이지 초기화
-    if($startPage < 1) $startPage = 1;
+                        // 현재 페이지를 기준으로 보여주고 싶은 개수
+                        $pageCurrent = 5;
+                        $startPage = $page - $pageCurrent;
+                        $endPage = $page + $pageCurrent;
 
-    // 마지막 페이지 초기화
-    if($endPage >= $boardCount) $endPage = $boardCount;
+                        // 처음 페이지 초기화
+                        if($startPage < 1) {
+                            $startPage = 1;
+                        }
 
-    // 이전 페이지, 처음 페이지
-    if($page != 1){
-        $prevPage = $page - 1;
-        echo "<li><a href='board.php?page=1'>처음으로</a></li>";
-        echo "<li><a href='board.php?page={$prevPage}'>이전</a></li>";
-    }
+                        // 마지막 페이지 초기화
+                        if($endPage > $boardCount) {
+                            $endPage = $boardCount;
+                        }
 
-    // 페이지 넘버 표시
-    for($i=$startPage; $i<=$endPage; $i++){
-        $active = "";
-        if($i == $page) $active = "active";
-        echo "<li class='{$active}'><a href='board.php?page={$i}'>{$i}</a></li>";
-    }
-    
-    // 다음 페이지, 마지막 페이지
-    if($page != $endPage){
-        $nextPage = $page + 1;
-        echo "<li><a href='board.php?page={$nextPage}'>다음</a></li>";
-        echo "<li><a href='board.php?page={$boardCount}'>마지막으로</a></li>";
-    }
+                        // 이전, 처음
+                        if($page !== 1) {
+                            $prevPage = $page - 1;
+                            echo "<li><a href='./board.php?page=1'>&lt;&lt;</a></li>";
+                            echo "<li><a href='./board.php?page={$prevPage}'>&lt;</a></li>";
+                        }
+                        
+                        // 페이지 넘버 표시
+                        for($i = $startPage; $i <= $endPage; $i++) {
+                            $active = "";
+                            if($i === $page) $active = "active";
+                            echo "<li class = '{$active}'><a href='./board.php?page={$i}'>$i</a></li>";
+                        }
 
-    // 게시물이 없을 때는 1만 나오게
-
-?>
+                        // 다음, 마지막
+                        // if((int)$_GET['page'] !== (int)$boardCount) {
+                        //     $nextPage = (int)$_GET['page'] + 1;
+                        //     echo "<li><a href='./board.php?page={$nextPage}'>다음</a></li>";
+                        //     echo "<li><a href='./board.php?page={$boardCount}'>마지막</a></li>";
+                        // }
+                        if($page != $endPage) {
+                            $nextPage = $page + 1;
+                            echo "<li><a href='./board.php?page={$nextPage}'>&gt;</a></li>";
+                            echo "<li><a href='./board.php?page={$boardCount}'>&gt;&gt;</a></li>";
+                        }
+                    ?>
                     </ul>
                 </div>
             </div>
         </section>
+        <!-- // board -->
     </main>
-    <!-- main -->
+    <!-- // main -->
 
-    <?php include "../include/footer.php" ?>
-    <!-- footer -->
+    <?php include "../include/footer.php";?>
+    <!-- //footer -->
+
 </body>
 
 </html>
