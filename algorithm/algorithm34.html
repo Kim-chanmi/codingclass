@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알고리즘14</title>
+    <link rel="stylesheet" href="../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <h1><a href="../index.html">Javascript</a></h1>
+      <nav class="header_nav">
+        <ul>
+          <li><a href="../javascript01.html">데이터 저장하기</a></li>
+          <li><a href="../javascript02.html">데이터 불러오기</a></li>
+          <li><a href="../javascript03.html">데이터 실행하기</a></li>
+          <li><a href="../javascript04.html">데이터 제어하기</a></li>
+        </ul>
+        <ul>
+          <li><a href="../javascript05.html">문자열 객체</a></li>
+          <li><a href="../javascript06.html">배열 객체</a></li>
+          <li><a href="../javascript07.html">수학 객체</a></li>
+          <li><a href="../javascript08.html">숫자 객체</a></li>
+          <li><a href="../javascript09.html">브라우저 객체</a></li>
+          <li><a href="../javascript10.html">요소 객체</a></li>
+          <li><a href="../javascript11.html">이벤트 객체</a></li>
+        </ul>
+        <ul class="study">
+          <li><a href="basic.html">기본 규칙</a></li>
+          <li><a href="operator.html">연산자</a></li>
+          <li><a href="for.html">반복문</a></li>
+          <li><a href="if.html">조건문</a></li>
+          <li><a href="type.html">타입</a></li>
+          <li><a href="function.html">함수</a></li>
+          <li><a href="var.html">지역변수/전역변수</a></li>
+          <li><a href="element.html">요소 선택</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+      <div class="document">
+        <h1 class="t_tit">프로그래머스 1단계 : 2016년</h1>
+        <h2 class="t_tit2">📝 문제 설명</h2>
+        <p class="t_desc2">
+          2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요? 두 수
+          a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수,
+          solution을 완성하세요. 요일의 이름은 일요일부터 토요일까지 각각
+          SUN,MON,TUE,WED,THU,FRI,SAT 입니다. 예를 들어 a=5, b=24라면 5월 24일은
+          화요일이므로 문자열 "TUE"를 반환하세요.
+        </p>
+        <h2 class="t_tit2">👉 제한 조건</h2>
+        <p class="t_desc2">
+          - 2016년은 윤년입니다. <br />
+          -2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은
+          날짜는 주어지지 않습니다)
+          <br />
+        </p>
+        <h2 class="t_tit2">👉 입출력 예</h2>
+        <table class="t_table">
+          <tr>
+            <td>a</td>
+            <td>b</td>
+            <td>result</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>24</td>
+            <td>"TUE"</td>
+          </tr>
+        </table>
+        <h2 class="t_tit2">✌️ 나의 풀이</h2>
+        <div class="t_desc">
+          new Date()를 통해 2016년 a월 b일을 불러옵니다. 달을 0부터 센다고 해서
+          1을 뺐습니다. 결과가 숫자로 나오기 때문에 toString()을 해서 보면 "Tue
+          May 24 2016 00:00:00 GMT+0900 (Korean Standard Time)"이렇게 요일부터
+          나옵니다. slice()로 요일 부분만 자르고 toUpperCase()로 대문자를 만들면
+          끝~!
+        </div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(a, b) {
+    let answer = new Date(2016, a-1, b);
+    return answer.toString().slice(0, 3).toUpperCase();
+}
+</code></pre>
+        </div>
+        <h2 class="t_tit2">👍 다른 풀이</h2>
+        <div class="t_desc">
+          배열 2개워 조건문을 사용해서 풀이한 방법입니다.
+        </div>
+        <div class="t_code">
+          <pre><code class="language-js">function getDayName(a,b){
+    var dayList = ['FRI','SAT','SUN','MON','TUE','WED','THU'];
+    var monthArr = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    var daySum;
+    if(a &lt; 2) {
+    daySum = b - 1;
+    } else {
+    daySum = monthArr.slice(0, a - 1).reduce((a, b) => a + b) + b - 1;
+    }
+    return dayList[daySum % 7];
+}
+</code></pre>
+        </div>
+      </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+      <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script></script>
+  </body>
+</html>
