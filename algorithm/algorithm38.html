@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알고리즘14</title>
+    <link rel="stylesheet" href="../javascript/assets/css/style.css" />
+    <link rel="stylesheet" href="../javascript/assets/css/dracula.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <h1><a href="../index.html">Javascript</a></h1>
+      <nav class="header_nav">
+        <ul>
+          <li><a href="../javascript01.html">데이터 저장하기</a></li>
+          <li><a href="../javascript02.html">데이터 불러오기</a></li>
+          <li><a href="../javascript03.html">데이터 실행하기</a></li>
+          <li><a href="../javascript04.html">데이터 제어하기</a></li>
+        </ul>
+        <ul>
+          <li><a href="../javascript05.html">문자열 객체</a></li>
+          <li><a href="../javascript06.html">배열 객체</a></li>
+          <li><a href="../javascript07.html">수학 객체</a></li>
+          <li><a href="../javascript08.html">숫자 객체</a></li>
+          <li><a href="../javascript09.html">브라우저 객체</a></li>
+          <li><a href="../javascript10.html">요소 객체</a></li>
+          <li><a href="../javascript11.html">이벤트 객체</a></li>
+        </ul>
+        <ul class="study">
+          <li><a href="basic.html">기본 규칙</a></li>
+          <li><a href="operator.html">연산자</a></li>
+          <li><a href="for.html">반복문</a></li>
+          <li><a href="if.html">조건문</a></li>
+          <li><a href="type.html">타입</a></li>
+          <li><a href="function.html">함수</a></li>
+          <li><a href="var.html">지역변수/전역변수</a></li>
+          <li><a href="element.html">요소 선택</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+      <div class="document">
+        <h1 class="t_tit">프로그래머스 1단계 : 최소직사각형</h1>
+        <h2 class="t_tit2">📝 문제 설명</h2>
+        <p class="t_desc2">
+          명함 지갑을 만드는 회사에서 지갑의 크기를 정하려고 합니다. 다양한
+          모양과 크기의 명함들을 모두 수납할 수 있으면서, 작아서 들고 다니기
+          편한 지갑을 만들어야 합니다. 이러한 요건을 만족하는 지갑을 만들기 위해
+          디자인팀은 모든 명함의 가로 길이와 세로 길이를 조사했습니다. 모든
+          명함의 가로 길이와 세로 길이를 나타내는 2차원 배열 sizes가 매개변수로
+          주어집니다. 모든 명함을 수납할 수 있는 가장 작은 지갑을 만들 때,
+          지갑의 크기를 return 하도록 solution 함수를 완성해주세요.
+        </p>
+        <h2 class="t_tit2">👉 제한 사항</h2>
+        <p class="t_desc2">
+          - sizes의 길이는 1 이상 10,000 이하입니다.
+          <br />
+          - sizes의 원소는 [w, h] 형식입니다. <br />
+          - w는 명함의 가로 길이를 나타냅니다. <br />
+          - h는 명함의 세로 길이를 나타냅니다. <br />
+          - w와 h는 1 이상 1,000 이하인 자연수입니다. <br />
+        </p>
+        <h2 class="t_tit2">👉 입출력 예</h2>
+        <table class="t_table">
+          <tr>
+            <td>sizes</td>
+            <td>result</td>
+          </tr>
+          <tr>
+            <td>[[60, 50], [30, 70], [60, 30], [80, 40]]</td>
+            <td>4000</td>
+          </tr>
+          <tr>
+            <td>[[10, 7], [12, 3], [8, 15], [14, 7], [5, 15]]</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td>[[14, 4], [19, 6], [6, 16], [18, 7], [7, 11]]</td>
+            <td>133</td>
+          </tr>
+        </table>
+        <h2 class="t_tit2">✌️ 나의 풀이</h2>
+        <div class="t_desc">
+          map()을 이용해 큰 길이를 가로로 작은 길이를 세로로 맞추어 width와
+          height를 정렬합니다. forEach()를 통해 가장 큰 ㄱ밧을 찾아서 가로 *
+          세로를 반환합니다.
+        </div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(sizes) {
+
+    const resizes = sizes.map(([w, h]) => (w &lt; h ? [h, w] : [w, h]));
+
+    let maxWidth = 0;
+    let maxHeight = 0;
+
+    resizes.forEach(([w, h]) => {
+        maxWidth = Math.max(maxWidth, w);
+        maxHeight = Math.max(maxHeight, h);
+    });
+
+    return maxWidth * maxHeight;
+}
+</code></pre>
+        </div>
+        <h2 class="t_tit2">👍 다른 풀이</h2>
+        <div class="t_desc">reduce()를 이용해서 풀었네요.</div>
+        <div class="t_code">
+          <pre><code class="language-js">function solution(sizes) {
+    const [hor, ver] = sizes.reduce(([h, v], [a, b]) => [Math.max(h, Math.max(a, b)), Math.max(v, Math.min(a, b))], [0, 0])
+    return hor * ver;
+}
+</code></pre>
+        </div>
+      </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+      <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../javascript/assets/js/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script></script>
+  </body>
+</html>
