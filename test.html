@@ -1,149 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      body {
-        background: #222;
-        margin: 0rem;
-        min-height: 100vh;
-        font-family: Futura, sans-serif;
+      .box h1 {
+        font-size: 7.8125vw;
       }
-      #canvas {
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: -1;
+
+      .red {
+        color: red;
       }
     </style>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <div class="box">
+      <h1>Hello World!</h1>
+    </div>
+
     <script>
-      let resizeReset = function () {
-        w = canvasBody.width = window.innerWidth;
-        h = canvasBody.height = window.innerHeight;
-      };
+      let chars = [
+        "?",
+        "!",
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "&#63;",
+        "&#111;",
+        "&quot;",
+        "&amp;",
+        "&lt;",
+        "&gt;",
+        "&nbsp;",
+        "&iexcl;",
+        "&cent;",
+        "&pound;",
+        "&curren;",
+        "&yen;",
+        "&brvbar;",
+        "&sect;",
+        "&uml;",
+        "&copy;",
+        "&ordf;",
+        "&laquo;",
+        "&not;",
+        "&shy;",
+        "&reg;",
+        "&macr;",
+        "&deg;",
+        "&plusmn;",
+        "&sup2;",
+        "&sup3;",
+        "&acute;",
+        "&micro;",
+        "&para;",
+        "&middot;",
+        "&cedil;",
+        "&sup1;",
+        "&ordm;",
+        "&raquo;",
+        "&frac14;",
+        "&frac12;",
+        "&frac34;",
+        "&iquest;",
+        "&Agrave;",
+        "&Aacute;",
+        "&Acirc;",
+        "&Atilde;",
+        "&Auml;",
+        "&Aring;",
+        "&AElig;",
+        "&Ccedil;",
+        "&Egrave;",
+        "&Eacute;",
+        "&Ecirc;",
+        "&Euml;",
+        "&Igrave;",
+        "&Iacute;",
+        "&Icirc;",
+        "&Iuml;",
+        "&ETH;",
+        "&Ntilde;",
+        "&Ograve;",
+        "&Oacute;",
+        "&Ocirc;",
+        "&Otilde;",
+        "&Ouml;",
+        "&times;",
+        "&Oslash;",
+        "&Ugrave;",
+        "&Uacute;",
+        "&Ucirc;",
+        "&Uuml;",
+        "&Yacute;",
+        "&THORN;",
+        "&szlig;",
+        "&agrave;",
+        "&aacute;",
+        "&acirc;",
+        "&atilde;",
+        "&auml;",
+        "&aring;",
+        "&aelig;",
+        "&ccedil;",
+        "&egrave;",
+        "&eacute;",
+        "&ecirc;",
+        "&euml;",
+        "&igrave;",
+        "&iacute;",
+        "&icirc;",
+        "&iuml;",
+        "&eth;",
+        "&ntilde;",
+        "&ograve;",
+        "&oacute;",
+        "&ocirc;",
+        "&otilde;",
+        "&ouml;",
+        "&divide;",
+        "&oslash;",
+        "&ugrave;",
+        "&uacute;",
+        "&ucirc;",
+        "&uuml;",
+        "&yacute;",
+        "&thorn;",
+        "&yuml;",
+        "&#264;",
+        "&#265;",
+        "&OElig;",
+        "&oelig;",
+        "&Scaron;",
+        "&scaron;",
+        "&#372;",
+        "&#373;",
+        "&#374;",
+        "&#375;",
+        "&Yuml;",
+        "&fnof;",
+        "&circ;",
+        "&tilde;",
+        "&Alpha;",
+        "&Beta;",
+        "&Gamma;",
+        "&Delta;",
+        "&Epsilon;",
+        "&Zeta;",
+        "&Eta;",
+        "&Theta;",
+        "&Iota;",
+        "&Kappa;",
+        "&Lambda;",
+        "&Mu;",
+        "&Nu;",
+        "&Xi;",
+        "&Omicron;",
+        "&Pi;",
+        "&Rho;",
+        "&Sigma;",
+        "&Tau;",
+        "&Upsilon;",
+        "&Phi;",
+        "&Chi;",
+        "&Psi;",
+        "&Omega;",
+        "&alpha;",
+        "&beta;",
+        "&gamma;",
+        "&delta;",
+        "&epsilon;",
+        "&zeta;",
+        "&eta;",
+        "&theta;",
+        "&iota;",
+        "&kappa;",
+        "&lambda;",
+        "&mu;",
+        "&nu;",
+        "&xi;",
+        "&omicron;",
+        "&pi;",
+        "&rho;",
+        "&sigmaf;",
+        "&sigma;",
+        "&tau;",
+        "&upsilon;",
+        "&phi;",
+        "&chi;",
+        "&psi;",
+        "&omega;",
+        "&thetasym;",
+        "&upsih;",
+        "&piv;",
+        "&ensp;",
+        "&emsp;",
+        "&thinsp;",
+        "&zwnj;",
+        "&zwj;",
+        "&lrm;",
+        "&rlm;",
+        "&ndash;",
+        "&mdash;",
+        "&lsquo;",
+        "&rsquo;",
+        "&sbquo;",
+        "&ldquo;",
+        "&rdquo;",
+        "&bdquo;",
+        "&dagger;",
+        "&Dagger;",
+        "&bull;",
+        "&hellip;",
+        "&permil;",
+        "&prime;",
+        "&Prime;",
+        "&lsaquo;",
+        "&rsaquo;",
+        "&oline;",
+        "&frasl;",
+        "&euro;",
+        "&weierp;",
+        "&image;",
+        "&real;",
+        "&trade;",
+        "&alefsym;",
+        "&larr;",
+        "&uarr;",
+        "&rarr;",
+        "&darr;",
+        "&harr;",
+        "&crarr;",
+        "&lArr;",
+        "&uArr;",
+        "&rArr;",
+        "&dArr;",
+        "&hArr;",
+        "&forall;",
+        "&part;",
+        "&exist;",
+        "&empty;",
+        "&nabla;",
+        "&isin;",
+        "&notin;",
+        "&ni;",
+        "&prod;",
+        "&sum;",
+        "&minus;",
+        "&lowast;",
+        "&#8729;",
+        "&radic;",
+        "&prop;",
+        "&infin;",
+        "&ang;",
+        "&and;",
+        "&or;",
+        "&cap;",
+        "&cup;",
+        "&int;",
+        "&there4;",
+        "&sim;",
+        "&cong;",
+        "&asymp;",
+        "&ne;",
+        "&equiv;",
+        "&le;",
+        "&ge;",
+        "&sub;",
+        "&sup;",
+        "&nsub;",
+        "&sube;",
+        "&supe;",
+        "&oplus;",
+        "&otimes;",
+        "&perp;",
+        "&sdot;",
+        "&lceil;",
+        "&rceil;",
+        "&lfloor;",
+        "&rfloor;",
+        "&lang;",
+        "&rang;",
+        "&#9642;",
+        "&#9643;",
+        "&loz;",
+        "&#9702;",
+        "&spades;",
+        "&clubs;",
+        "&hearts;",
+        "&diams;",
+      ];
+      let h1 = document.querySelector("h1");
+      let strings = h1.innerHTML.split("");
 
-      const opts = {
-        particleColor: "rgb(200,200,200)",
-        lineColor: "rgb(200,200,200)",
-        particleAmount: 50,
-        defaultSpeed: 0.5,
-        variantSpeed: 0.1,
-        defaultRadius: 2,
-        variantRadius: 2,
-        linkRadius: 200,
-      };
-
-      window.addEventListener("resize", function () {
-        deBouncer();
+      let spans = strings.map((str) => {
+        if (str === " ") return " ";
+        else return `<span>${str}</span>`;
       });
 
-      let deBouncer = function () {
-        clearTimeout(tid);
-        tid = setTimeout(function () {
-          resizeReset();
-        }, delay);
-      };
+      h1.innerHTML = spans.join("");
 
-      let checkDistance = function (x1, y1, x2, y2) {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-      };
+      let elems = h1.querySelectorAll("span");
 
-      let linkPoints = function (point1, hubs) {
-        for (let i = 0; i < hubs.length; i++) {
-          let distance = checkDistance(
-            point1.x,
-            point1.y,
-            hubs[i].x,
-            hubs[i].y
-          );
-          let opacity = 1 - distance / opts.linkRadius;
+      Array.prototype.map.call(elems, (elem, idx) => {
+        elem.dataset.char = elem.innerHTML;
+        shuffle(elem, new Date().getTime(), idx * 100);
+      });
 
-          if (opacity > 0) {
-            drawArea.lineWidth = 0.5;
-            drawArea.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${opacity})`;
-            drawArea.beginPath();
-            drawArea.moveTo(point1.x, point1.y);
-            drawArea.lineTo(hubs[i].x, hubs[i].y);
-            drawArea.closePath();
-            drawArea.stroke();
-          }
-        }
-      };
+      function shuffle(elem, start, delay) {
+        let num = Math.floor(Math.random() * chars.length);
+        let current = new Date().getTime();
 
-      Particle = function (xPos, yPos) {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed;
-        this.directionAngle = Math.floor(Math.random() * 360);
-        this.color = opts.particleColor;
-        this.radius = opts.defaultRadius + Math.random() * opts.variantRadius;
-        this.vector = {
-          x: Math.cos(this.directionAngle) * this.speed,
-          y: Math.sin(this.directionAngle) * this.speed,
-        };
-        this.update = function () {
-          this.border();
-          this.x += this.vector.x;
-          this.y += this.vector.y;
-        };
-        this.border = function () {
-          if (this.x >= w || this.x <= 0) {
-            this.vector.x *= -1;
-          }
-          if (this.y >= h || this.y <= 0) {
-            this.vector.y *= -1;
-          }
-          if (this.x > w) this.x = w;
-          if (this.y > h) this.y = h;
-          if (this.x < 0) this.x = 0;
-          if (this.y < 0) this.y = 0;
-        };
-        this.draw = function () {
-          drawArea.beginPath();
-          drawArea.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          drawArea.closePath();
-          drawArea.fillStyle = this.color;
-          drawArea.fill();
-        };
-      };
-
-      function setup() {
-        particles = [];
-        resizeReset();
-        for (let i = 0; i < opts.particleAmount; i++) {
-          particles.push(new Particle());
-        }
-        window.requestAnimationFrame(loop);
-      }
-
-      function loop() {
-        window.requestAnimationFrame(loop);
-        drawArea.clearRect(0, 0, w, h);
-
-        for (let i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
-        }
-
-        for (let i = 0; i < particles.length; i++) {
-          linkPoints(particles[i], particles);
+        if (100 + delay < current - start) {
+          elem.innerHTML = elem.dataset.char;
+          setTimeout(() => {
+            shuffle(elem, current, delay);
+          }, 1000);
+        } else {
+          elem.innerHTML = chars[num];
+          setTimeout(() => {
+            shuffle(elem, start, delay);
+          }, 50);
         }
       }
-
-      const canvasBody = document.getElementById("canvas"),
-        drawArea = canvasBody.getContext("2d");
-      let delay = 200,
-        tid,
-        rgb = opts.lineColor.match(/\d+/g);
-      resizeReset();
-      setup();
     </script>
   </body>
 </html>
