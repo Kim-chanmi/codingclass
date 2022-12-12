@@ -61,12 +61,12 @@ body {
   text-align: center;
 }
 
-.icon1 {
+/* .icon1 {
   position: absolute;
   left: 100px;
   top: 100px;
   width: 58px;
-}
+} */
 
 .icon1 img {
   width: 58px;
@@ -75,7 +75,7 @@ body {
 .icon2 {
   position: absolute;
   left: 100px;
-  top: 230px;
+  top: 100px;
   width: 58px;
 }
 
@@ -86,7 +86,7 @@ body {
 .icon3 {
   position: absolute;
   left: 100px;
-  top: 360px;
+  top: 230px;
   width: 58px;
 }
 
@@ -97,7 +97,7 @@ body {
 .icon4 {
   position: absolute;
   left: 100px;
-  top: 490px;
+  top: 360px;
   width: 58px;
 }
 
@@ -108,7 +108,7 @@ body {
 .icon5 {
   position: absolute;
   left: 100px;
-  top: 620px;
+  top: 490px;
   width: 58px;
 }
 
@@ -119,7 +119,7 @@ body {
 .icon6 {
   position: absolute;
   left: 100px;
-  top: 750px;
+  top: 620px;
   width: 58px;
 }
 
